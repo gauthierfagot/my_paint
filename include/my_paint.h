@@ -13,4 +13,14 @@
     #include <SFML/Audio.h>
     #include <SFML/Graphics.h>
 
+enum {
+    HOVER,
+    CLICKED,
+    PRESSED,
+};
+
+typedef struct button_s {
+    int status;
+} button_t;
+
 #endif /* !PAINT */
