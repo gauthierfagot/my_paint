@@ -5,11 +5,11 @@
 ## Makefile
 ##
 
-SRC     =	src/main.c	\
+SRC     =	src/main.c			\
+			src/event.c			\
+			src/set_window.c	\
 			src/free_variable.c	\
 			src/draw_entities.c	\
-			src/set_window.c	\
-			src/event.c	\
 			src/init_variable.c	\
 
 OBJ     =	$(SRC:.c=.o)
@@ -34,8 +34,14 @@ $(LIB):
 $(NAME):	$(LIB) $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(LDLIBS) $(LDFLAGS)
 
-debug: CFLAGS += -gdb3
-debug: re
+debug:	CFLAGS += -gdb3
+
+debug:	re
+
+style:
+		coding-style . .
+		cat coding-style-reports.log
+		rm -rf coding-style-reports.log
 
 clean:
 	$(RM) $(OBJ)
