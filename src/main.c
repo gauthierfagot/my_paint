@@ -4,10 +4,9 @@
 ** File description:
 ** main
 */
+
 #include "my_paint.h"
-#include "button.h"
-#include "button_state.h"
-#include "drop_menu.h"
+#include "define.h"
 
 void central_loop(sfRenderWindow *window, game_t *game)
 {
@@ -32,7 +31,7 @@ int main(int argc, char **argv, char **env)
 {
     sfVideoMode mode = {WIDTH, HEIGHT, 32};
     sfRenderWindow *window = NULL;
-    game_t game;
+    game_t game = {0};
 
     (void)argv;
     if (env[0] == NULL || argc != 1)

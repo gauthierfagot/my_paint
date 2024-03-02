@@ -12,15 +12,17 @@
     #include <stdbool.h>
     #include <SFML/Graphics.h>
     #include "button.h"
-    #include "define.h"
 
 typedef struct pixel_s {
     sfVector2f placement;
-    int r;
-    int g;
-    int b;
-    int a;
+    sfUint8 *rgba;
 } pixel_t;
+
+typedef struct graphical_tool_s {
+    unsigned int height;
+    unsigned int width;
+    sfUint8 opacity;
+} graphical_tool_t;
 
 typedef struct game_s {
     sfTexture **textures;
@@ -29,6 +31,7 @@ typedef struct game_s {
 // create, initialize and set
 
 int create_game(game_t *game);
+sfSprite *init_pixel(graphical_tool_t *brush, sfUint8 *rgba);
 void set_window_entities(game_t *game, sfSprite *background);
 button_t *init_button(sfVector2f position, sfVector2f size, char *picture);
 
@@ -36,6 +39,8 @@ button_t *init_button(sfVector2f position, sfVector2f size, char *picture);
 
 void draw_entities(sfRenderWindow *window, sfSprite *background,
     button_t *button);
+void draw_a_pixel(graphical_tool_t *brush, sfUint8 *rgba, sfRenderWindow *
+window);
 
 // events
 
@@ -50,5 +55,9 @@ sfBool is_button_hover(button_t *button, sfMouseMoveEvent
 
 void destroy_variable(sfRenderWindow *window, game_t *game);
 void free_array(char **array);
+
+// save
+
+void save_drawing(const sfImage *image,const char *name);
 
 #endif /* !PAINT */

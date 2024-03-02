@@ -1,18 +1,18 @@
 /*
 ** EPITECH PROJECT, 2024
-** init_variable
+** My_paint
 ** File description:
-** init_variable
+** creations
 */
-#include "my_paint.h"
-#include "array_texture.h"
-#include "texture.h"
-#include "button.h"
-#include "button_state.h"
-#include "drop_menu.h"
 
-struct s_gui_drop_menu *add_option_drop_menu(struct s_gui_drop_menu *drop_menu,
-    char *picture)
+#include "array_texture.h"
+#include "drop_menu.h"
+#include "my_paint.h"
+#include "texture.h"
+#include "define.h"
+
+static struct s_gui_drop_menu *add_option_drop_menu(struct s_gui_drop_menu *
+    drop_menu, char *picture)
 {
     struct s_gui_options *new_option = malloc(sizeof(struct s_gui_options));
     sfVector2f position = sfRectangleShape_getPosition(
@@ -35,20 +35,6 @@ struct s_gui_drop_menu *create_drop_menu(sfVector2f position, sfVector2f size,
     drop_menu->button = init_button(position, size, picture);
     drop_menu->options = NULL;
     return drop_menu;
-}
-
-button_t *init_button(sfVector2f position, sfVector2f size, char *picture)
-{
-    (void)picture;
-    button_t *button = malloc(sizeof(button_t));
-    button->rect = sfRectangleShape_create();
-    sfRectangleShape_setPosition(button->rect, position);
-    sfRectangleShape_setSize(button->rect, size);
-    sfRectangleShape_setFillColor(button->rect, sfWhite);
-    button->is_clicked = is_button_clicked;
-    button->is_hover = is_button_hover;
-    button->state = CLICKED;
-    return button;
 }
 
 int create_game(game_t *game)

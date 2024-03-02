@@ -5,12 +5,13 @@
 ## Makefile
 ##
 
-SRC     =	src/main.c			\
-			src/event.c			\
-			src/set_window.c	\
-			src/free_variable.c	\
-			src/draw_entities.c	\
-			src/init_variable.c	\
+SRC     =	src/main.c				\
+			src/event.c				\
+			src/creations.c			\
+			src/set_window.c		\
+			src/draw_entities.c		\
+			src/initializations.c	\
+			src/free_and_destroy.c	\
 
 OBJ     =	$(SRC:.c=.o)
 
