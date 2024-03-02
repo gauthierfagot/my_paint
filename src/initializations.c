@@ -10,8 +10,9 @@
 
 button_t *init_button(sfVector2f position, sfVector2f size, char *picture)
 {
-    (void)picture;
     button_t *button = malloc(sizeof(button_t));
+
+    (void)picture;
     button->rect = sfRectangleShape_create();
     sfRectangleShape_setPosition(button->rect, position);
     sfRectangleShape_setSize(button->rect, size);
@@ -24,11 +25,17 @@ button_t *init_button(sfVector2f position, sfVector2f size, char *picture)
 
 sfSprite *init_pixel(graphical_tool_t *brush, sfUint8 *rgba)
 {
-    sfImage *image = sfImage_createFromPixels(brush->width, brush->height,
-    rgba);
-    sfTexture *texture = sfTexture_createFromImage(image, NULL);
-    sfSprite *sprite = sfSprite_create();
+    sfImage *image = NULL;
+    sfTexture *texture = NULL;
+    sfSprite *sprite = NULL;
 
+    if (brush == NULL)
+        image = sfImage_createFromPixels(10, 10, rgba);
+    else
+        image = sfImage_createFromPixels(brush->width, brush->height,
+    rgba);
+    texture = sfTexture_createFromImage(image, NULL);
+    sprite = sfSprite_create();
     if (texture == NULL || sprite == NULL)
         return NULL;
     sfSprite_setTexture(sprite, texture, sfFalse);

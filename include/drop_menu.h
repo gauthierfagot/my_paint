@@ -10,7 +10,7 @@
     #include "button.h"
 
 struct s_gui_options {
-    struct button_s *option;
+    button_t *option;
     struct s_gui_options *next;
 };
 

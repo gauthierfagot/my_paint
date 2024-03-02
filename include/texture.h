@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2024
-** texture
+** My_paint
 ** File description:
 ** texture
 */
@@ -13,6 +13,7 @@ static const int ARRAY_TEXTURE_SIZE = 1;
 typedef enum texture {
     BACKGROUND = 0,
     BRUSH,
+    SIZE,
 } texture_t;
 
 #endif /* !TEXTURE_H_ */

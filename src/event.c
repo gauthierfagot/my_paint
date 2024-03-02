@@ -4,9 +4,10 @@
 ** File description:
 ** event
 */
+
+#include "button_state.h"
 #include "my_paint.h"
 #include "button.h"
-#include "button_state.h"
 
 sfBool is_button_clicked(button_t *button, sfMouseButtonEvent *mouse_event)
 {
@@ -33,15 +34,22 @@ sfBool is_button_hover(button_t *button, sfMouseMoveEvent *mouse_event)
     return sfFalse;
 }
 
-int analyze_events(sfRenderWindow *window, sfEvent *event, button_t *button)
+static void handle_drawing_act(sfUint8 *rgba, sfEvent *event, button_t *button,
+    sfSprite **pixels)
+{
+    if (button->is_clicked(button, &event->mouseButton))
+        add_new_pixel(pixels, NULL, rgba);
+    return;
+}
+
+int analyze_events(sfRenderWindow *window, sfEvent *event, button_t *button,
+    sfSprite **pixels)
 {
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed)
             return 1;
-        if (event->type == sfEvtMouseButtonPressed) {
-            if (button->is_clicked(button, &event->mouseButton))
-                printf("Hello\n");
-        }
+        if (event->type == sfEvtMouseButtonPressed)
+            handle_drawing_act(NULL, event, button, pixels);
         if (button->is_hover(button, &event->mouseMove))
             sfRectangleShape_setFillColor(button->rect, sfGreen);
         else

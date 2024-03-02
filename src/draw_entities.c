@@ -14,10 +14,12 @@ void draw_entities(sfRenderWindow *window, sfSprite *background,
     sfRenderWindow_drawRectangleShape(window, button->rect, NULL);
 }
 
-void draw_a_pixel(graphical_tool_t *brush, sfUint8 *rgba,
-    sfRenderWindow *window)
+void draw_pixels_array(graphical_tool_t *brush, sfUint8 *rgba,
+    sfRenderWindow *window, sfSprite **pixels_array)
 {
-    sfSprite *sprite = init_pixel(brush, rgba);
-    sfRenderWindow_drawSprite(window, sprite, NULL);
+    if (pixels_array == NULL || brush == NULL || rgba == NULL)
+        return;
+    for (int i = 0; pixels_array[i] != NULL; i++)
+        sfRenderWindow_drawSprite(window, pixels_array[i], NULL);
     return;
 }

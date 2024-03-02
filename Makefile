@@ -6,6 +6,7 @@
 ##
 
 SRC     =	src/main.c				\
+			src/add.c				\
 			src/event.c				\
 			src/creations.c			\
 			src/set_window.c		\

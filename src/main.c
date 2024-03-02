@@ -8,18 +8,35 @@
 #include "my_paint.h"
 #include "define.h"
 
+static sfUint8 *init_default_rgba(void)
+{
+    sfUint8 *rgba = malloc(sizeof(sfUint8) * 5);
+
+    if (rgba == NULL)
+        return NULL;
+    rgba[0] = 255;
+    rgba[1] = 255;
+    rgba[2] = 255;
+    rgba[3] = 100;
+    rgba[4] = 0;
+    return rgba;
+}
+
 void central_loop(sfRenderWindow *window, game_t *game)
 {
     sfEvent event;
+    sfSprite **pix_arr = NULL;
     sfVector2f size = {50, 50};
     sfVector2f position = {100, 100};
+    sfUint8 *rgba = init_default_rgba();
     sfSprite *background = sfSprite_create();
     button_t *button = init_button(position, size, "brush.jpg");
 
     set_window_entities(game, background);
     while (sfRenderWindow_isOpen(window)) {
-        if (analyze_events(window, &event, button) == 1)
+        if (analyze_events(window, &event, button, pix_arr) == 1)
             break;
+        draw_pixels_array(NULL, rgba, window, pix_arr);
         draw_entities(window, background, button);
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
