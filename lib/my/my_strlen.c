@@ -5,10 +5,15 @@
 ** strlen
 */
 
+#include <stddef.h>
+
 int my_strlen(char const *str)
 {
-    int i;
+    int len = 0;
 
-    for (i = 0; str[i] != '\0'; i++);
-    return i;
+    if (str == NULL)
+        return 0;
+    while (str[len] != '\0')
+        len += 1;
+    return len;
 }

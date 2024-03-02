@@ -11,7 +11,8 @@
 static const int ARRAY_TEXTURE_SIZE = 1;
 
 typedef enum texture {
-    BACKGROUND
+    BACKGROUND = 0,
+    BRUSH,
 } texture_t;
 
 #endif /* !TEXTURE_H_ */

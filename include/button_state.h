@@ -10,9 +10,12 @@
 
 enum e_state {
     NONE = 0,
+    INVALID,
     HOVER,
     PRESSED,
     CLICKED
 };
+
+
 
 #endif /* !BUTTON_STATE_H */
