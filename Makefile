@@ -13,6 +13,7 @@ SRC     =	src/main.c				\
 			src/draw_entities.c		\
 			src/initializations.c	\
 			src/free_and_destroy.c	\
+			src/check_env.c	\
 
 OBJ     =	$(SRC:.c=.o)
 

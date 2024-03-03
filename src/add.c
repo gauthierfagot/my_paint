@@ -6,7 +6,6 @@
 */
 
 #include "my_paint.h"
-#include "drop_menu.h"
 
 static int len(sfSprite **arr)
 {
@@ -45,20 +44,4 @@ void add_new_pixel(sfSprite **pixels, graphical_tool_t *brush, sfUint8 *rgba)
     }
     pixels = realloc_sprite_array(pixels, sprite);
     return;
-}
-
-struct s_gui_drop_menu *add_option_drop_menu(struct s_gui_drop_menu *
-    drop_menu, char *picture)
-{
-    struct s_gui_options *new_option = malloc(sizeof(struct s_gui_options));
-    sfVector2f position = sfRectangleShape_getPosition(
-        drop_menu->button->rect);
-    sfVector2f size = sfRectangleShape_getSize(drop_menu->button->rect);
-    sfVector2f option_position = {position.x + size.x, position.y + size.y};
-    sfVector2f option_size = {size.x, size.y};
-
-    new_option->option = init_button(option_position, option_size, picture);
-    new_option->next = drop_menu->options;
-    drop_menu->options = new_option;
-    return drop_menu;
 }

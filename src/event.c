@@ -37,23 +37,24 @@ sfBool is_button_hover(button_t *button, sfMouseMoveEvent *mouse_event)
 static void handle_drawing_act(sfUint8 *rgba, sfEvent *event, button_t *button,
     sfSprite **pixels)
 {
-    if (button->is_clicked(button, &event->mouseButton))
+    if (is_button_clicked(button, &event->mouseButton))
         add_new_pixel(pixels, NULL, rgba);
     return;
 }
 
-int analyze_events(sfRenderWindow *window, sfEvent *event, button_t *button,
+sfBool action_test(button_t **)
+{
+    return sfTrue;
+}
+
+sfBool analyze_events(sfRenderWindow *window, sfEvent *event, button_t **buttons,
     sfSprite **pixels)
 {
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed)
-            return 1;
+            return sfFalse;
         if (event->type == sfEvtMouseButtonPressed)
-            handle_drawing_act(NULL, event, button, pixels);
-        if (button->is_hover(button, &event->mouseMove))
-            sfRectangleShape_setFillColor(button->rect, sfGreen);
-        else
-            sfRectangleShape_setFillColor(button->rect, sfWhite);
+            handle_drawing_act(NULL, event, buttons[0], pixels);
     }
-    return 0;
+    return sfTrue;
 }

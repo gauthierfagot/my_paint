@@ -26,18 +26,15 @@ void central_loop(sfRenderWindow *window, game_t *game)
 {
     sfEvent event;
     sfSprite **pix_arr = NULL;
-    sfVector2f size = {50, 50};
-    sfVector2f position = {100, 100};
     sfUint8 *rgba = init_default_rgba();
     sfSprite *background = sfSprite_create();
-    button_t *button = init_button(position, size, "brush.jpg");
 
     set_window_entities(game, background);
     while (sfRenderWindow_isOpen(window)) {
-        if (analyze_events(window, &event, button, pix_arr) == 1)
+        if (analyze_events(window, &event, game->buttons, pix_arr) == sfFalse)
             break;
         draw_pixels_array(NULL, rgba, window, pix_arr);
-        draw_entities(window, background, button);
+        draw_entities(window, background, game->buttons);
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
     }
@@ -51,9 +48,9 @@ int main(int argc, char **argv, char **env)
     game_t game = {0};
 
     (void)argv;
-    if (env[0] == NULL || argc != 1)
+    if (check_env(env) == sfFalse || argc != 1)
         return 84;
-    if (create_game(&game) == 84)
+    if (create_game(&game) == sfFalse)
         return 84;
     window = sfRenderWindow_create(mode, "Radar", sfResize | sfClose, NULL);
     if (!window)

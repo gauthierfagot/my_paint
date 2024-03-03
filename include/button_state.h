@@ -8,14 +8,12 @@
 #ifndef BUTTON_STATE_H
     #define BUTTON_STATE_H
 
-enum e_state {
+typedef enum e_state {
     NONE = 0,
     INVALID,
     HOVER,
     PRESSED,
     CLICKED
-};
-
-
+} e_state;
 
 #endif /* !BUTTON_STATE_H */
