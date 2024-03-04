@@ -10,6 +10,18 @@
 #include "init_button.h"
 #include "texture.h"
 
+sfSprite *init_drawing(game_t *game)
+{
+    sfSprite *drawing = sfSprite_create();
+    sfVector2u size_image = sfImage_getSize(game->image);
+    sfVector2f position = {(WIDTH - size_image.x) / 2.0,
+    (HEIGHT - size_image.y) * (2.0 / 3.0)};
+
+    sfSprite_setTexture(drawing, game->textures[DRAWING], sfFalse);
+    sfSprite_setPosition(drawing, position);
+    return drawing;
+}
+
 button_t *init_button(game_t *game, int i)
 {
     button_t *button = malloc(sizeof(button_t));
@@ -23,34 +35,3 @@ button_t *init_button(game_t *game, int i)
     button->state = INIT_BUTTON[i].state;
     return button;
 }
-
-sfSprite *init_pixel(graphical_tool_t *brush, sfUint8 *rgba)
-{
-    sfImage *image = NULL;
-    sfTexture *texture = NULL;
-    sfSprite *sprite = NULL;
-
-    if (brush == NULL)
-        image = sfImage_createFromPixels(10, 10, rgba);
-    else
-        image = sfImage_createFromPixels(brush->width, brush->height,
-    rgba);
-    texture = sfTexture_createFromImage(image, NULL);
-    sprite = sfSprite_create();
-    if (texture == NULL || sprite == NULL)
-        return NULL;
-    sfSprite_setTexture(sprite, texture, sfFalse);
-    return sprite;
-}
-
-// pixel_t *init_pixel(sfUint8 *rgba, sfVector2f placement)
-// {
-//     pixel_t *pixel = {0};
-
-//     pixel->r = rgba[RED];
-//     pixel->g = rgba[GREEN];
-//     pixel->b = rgba[BLUE];
-//     pixel->a = rgba[ALPHA];
-//     pixel->placement = placement;
-//     return pixel;
-// }

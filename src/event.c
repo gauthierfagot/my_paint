@@ -8,6 +8,7 @@
 #include "button_state.h"
 #include "my_paint.h"
 #include "button.h"
+#include "texture.h"
 
 sfBool is_button_clicked(button_t *button, sfMouseButtonEvent *mouse_event)
 {
@@ -34,27 +35,22 @@ sfBool is_button_hover(button_t *button, sfMouseMoveEvent *mouse_event)
     return sfFalse;
 }
 
-static void handle_drawing_act(sfUint8 *rgba, sfEvent *event, button_t *button,
-    sfSprite **pixels)
-{
-    if (is_button_clicked(button, &event->mouseButton))
-        add_new_pixel(pixels, NULL, rgba);
-    return;
-}
-
 sfBool action_test(button_t **)
 {
     return sfTrue;
 }
 
-sfBool analyze_events(sfRenderWindow *window, sfEvent *event, button_t **buttons,
-    sfSprite **pixels)
+sfBool analyze_events(sfRenderWindow *window, sfEvent *event, game_t *game)
 {
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed)
             return sfFalse;
-        if (event->type == sfEvtMouseButtonPressed)
-            handle_drawing_act(NULL, event, buttons[0], pixels);
+        if (event->type == sfEvtMouseButtonPressed) {
+            sfImage_setPixel(game->image, event->mouseButton.x,
+            event->mouseButton.y, sfRed);
+            sfTexture_updateFromImage(game->textures[DRAWING], game->image,
+            0, 0);
+        }
     }
     return sfTrue;
 }

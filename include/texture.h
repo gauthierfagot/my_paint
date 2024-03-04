@@ -9,11 +9,10 @@
     #define TEXTURE_H_
 
 typedef enum e_texture {
-    BACKGROUND = 0,
+    DRAWING = 0,
+    BACKGROUND,
     BRUSH,
     SIZE
 } e_texture;
-
-static const int ARRAY_TEXTURE_SIZE = SIZE;
 
 #endif /* !TEXTURE_H_ */

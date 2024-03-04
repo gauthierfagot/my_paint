@@ -9,9 +9,9 @@
     #define ARRAY_TEXTURES_H_
     #include "texture.h"
 
-static const char *ARRAY_TEXTURE[SIZE] = {
+static const char *ARRAY_TEXTURE[2] = {
     "image/background.png",
-    "image/brush.jpg",
+    "image/brush.jpg"
 };
 
 #endif /* !ARRAY_TEXTURES_H_ */

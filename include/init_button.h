@@ -22,11 +22,14 @@ typedef struct init_buttons_s {
 
 sfBool action_test(button_t **);
 
-static const int INIT_BUTTON_SIZE = 2;
+static const int INIT_BUTTON_SIZE = 5;
 
 static const init_buttons_t INIT_BUTTON[] = {
-    {{100, 100}, {500, 500}, action_test, BRUSH, NONE},
-    {{100, 100}, {100, 100}, action_test, BRUSH, NONE}
+    {{50, 50}, {2 * 300, 50}, action_test, BRUSH, NONE},
+    {{50, 50}, {2 * 375, 50}, action_test, BRUSH, NONE},
+    {{50, 50}, {2 * 450, 50}, action_test, BRUSH, NONE},
+    {{50, 50}, {2 * 525, 50}, action_test, BRUSH, NONE},
+    {{50, 50}, {2 * 600, 50}, action_test, BRUSH, NONE}
 };
 
 #endif /* !INIT_BUTTON_H */

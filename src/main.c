@@ -14,9 +14,9 @@ static sfUint8 *init_default_rgba(void)
 
     if (rgba == NULL)
         return NULL;
-    rgba[0] = 255;
+    rgba[0] = 200;
     rgba[1] = 255;
-    rgba[2] = 255;
+    rgba[2] = 100;
     rgba[3] = 100;
     rgba[4] = 0;
     return rgba;
@@ -25,16 +25,14 @@ static sfUint8 *init_default_rgba(void)
 void central_loop(sfRenderWindow *window, game_t *game)
 {
     sfEvent event;
-    sfSprite **pix_arr = NULL;
     sfUint8 *rgba = init_default_rgba();
     sfSprite *background = sfSprite_create();
 
     set_window_entities(game, background);
     while (sfRenderWindow_isOpen(window)) {
-        if (analyze_events(window, &event, game->buttons, pix_arr) == sfFalse)
+        if (analyze_events(window, &event, game) == sfFalse)
             break;
-        draw_pixels_array(NULL, rgba, window, pix_arr);
-        draw_entities(window, background, game->buttons);
+        draw_entities(window, background, game);
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
     }
@@ -52,7 +50,7 @@ int main(int argc, char **argv, char **env)
         return 84;
     if (create_game(&game) == sfFalse)
         return 84;
-    window = sfRenderWindow_create(mode, "Radar", sfResize | sfClose, NULL);
+    window = sfRenderWindow_create(mode, "Paint", sfResize | sfClose, NULL);
     if (!window)
         return 84;
     sfRenderWindow_setFramerateLimit(window, FRAME);
