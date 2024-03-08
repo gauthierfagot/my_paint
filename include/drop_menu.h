@@ -7,16 +7,17 @@
 
 #ifndef DROP_MENU_H
     #define DROP_MENU_H
-    #include "button.h"
 
-struct s_gui_options {
-    button_t *option;
-    struct s_gui_options *next;
-};
+typedef struct drop_menu_s {
+    button_t *menu_button;
+    button_t **buttons;
+} drop_menu_t;
 
-struct s_gui_drop_menu {
-    button_t *button;
-    struct s_gui_options *options;
-};
+typedef enum e_drop_menu {
+    BUTTON = -1,
+    FILE,
+    EDITION,
+    INFO
+} e_drop_menu;
 
 #endif /* !DROP_MENU_H */

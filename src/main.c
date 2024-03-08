@@ -6,33 +6,20 @@
 */
 
 #include "my_paint.h"
+#include "graphical_tool.h"
 #include "define.h"
 
-static sfUint8 *init_default_rgba(void)
-{
-    sfUint8 *rgba = malloc(sizeof(sfUint8) * 5);
-
-    if (rgba == NULL)
-        return NULL;
-    rgba[0] = 200;
-    rgba[1] = 255;
-    rgba[2] = 100;
-    rgba[3] = 100;
-    rgba[4] = 0;
-    return rgba;
-}
-
-void central_loop(sfRenderWindow *window, game_t *game)
+void central_loop(sfRenderWindow *window, paint_t *paint)
 {
     sfEvent event;
-    sfUint8 *rgba = init_default_rgba();
     sfSprite *background = sfSprite_create();
+    graphical_tool_t tools = create_tools();
 
-    set_window_entities(game, background);
+    set_window_entities(paint, background);
     while (sfRenderWindow_isOpen(window)) {
-        if (analyze_events(window, &event, game) == sfFalse)
+        if (analyze_events(window, &event, paint, &tools) == sfFalse)
             break;
-        draw_entities(window, background, game);
+        draw_entities(window, background, paint);
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
     }
@@ -43,19 +30,19 @@ int main(int argc, char **argv, char **env)
 {
     sfVideoMode mode = {WIDTH, HEIGHT, 32};
     sfRenderWindow *window = NULL;
-    game_t game = {0};
+    paint_t paint = {0};
 
     (void)argv;
     if (check_env(env) == sfFalse || argc != 1)
         return 84;
-    if (create_game(&game) == sfFalse)
+    if (create_paint(&paint) == sfFalse)
         return 84;
     window = sfRenderWindow_create(mode, "Paint", sfResize | sfClose, NULL);
     if (!window)
         return 84;
     sfRenderWindow_setFramerateLimit(window, FRAME);
-    central_loop(window, &game);
+    central_loop(window, &paint);
     sfRenderWindow_close(window);
-    destroy_variable(window, &game);
+    destroy_variable(window, &paint);
     return 0;
 }

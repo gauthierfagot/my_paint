@@ -7,7 +7,8 @@
 #include "my_paint.h"
 #include "texture.h"
 
-void set_window_entities(game_t *game, sfSprite *background)
+void set_window_entities(paint_t *paint, sfSprite *background)
 {
-    sfSprite_setTexture(background, game->textures[BACKGROUND], sfTrue);
+    sfSprite_setTexture(background, paint->textures[BACKGROUND_TEXTURE],
+        sfTrue);
 }

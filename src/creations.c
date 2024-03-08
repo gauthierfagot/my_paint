@@ -9,25 +9,28 @@
 #include "button.h"
 #include "init_button.h"
 #include "define.h"
+#include "init_drop_menu_array.h"
+#include "graphical_tool.h"
 
-static button_t **create_buttons(game_t *game)
+static drop_menu_t **create_menus(paint_t *paint)
 {
-    button_t **buttons = malloc(sizeof(button_t *) * (INIT_BUTTON_SIZE + 1));
+    drop_menu_t **menus = malloc(sizeof(drop_menu_t *) *
+    (INIT_DROP_MENU_SIZE + 1));
 
-    for (int i = 0; i < INIT_BUTTON_SIZE; i++) {
-        buttons[i] = init_button(game, i);
-        if (buttons[i] == NULL)
+    for (int i = 0; i < INIT_DROP_MENU_SIZE; i++) {
+        menus[i] = init_drop_menu(paint, i);
+        if (menus[i] == NULL)
             return NULL;
     }
-    buttons[INIT_BUTTON_SIZE] = NULL;
-    return buttons;
+    menus[INIT_DROP_MENU_SIZE] = NULL;
+    return menus;
 }
 
-static sfTexture **create_textures(game_t *game)
+static sfTexture **create_textures(paint_t *paint)
 {
     sfTexture **textures = malloc(sizeof(sfTexture *) * SIZE);
 
-    textures[DRAWING] = sfTexture_createFromImage(game->image, NULL);
+    textures[DRAWING] = sfTexture_createFromImage(paint->image, NULL);
     for (int i = 1; i < SIZE; i++) {
         textures[i] = sfTexture_createFromFile(ARRAY_TEXTURE[i - 1],
         NULL);
@@ -37,16 +40,29 @@ static sfTexture **create_textures(game_t *game)
     return textures;
 }
 
-sfBool create_game(game_t *game)
+graphical_tool_t create_tools(void)
 {
-    game->image = sfImage_createFromColor(WIDTH * (5.0 / 6.0),
-    HEIGHT * (4.0 / 5.0), sfWhite);
-    game->textures = create_textures(game);
-    if (game->textures == NULL)
+    graphical_tool_t tools;
+
+    tools.height = 20;
+    tools.width = 20;
+    tools.tool = MOUSE;
+    tools.shape = SQUARE;
+    tools.color = sfBlack;
+    tools.opacity = 1;
+    return tools;
+}
+
+sfBool create_paint(paint_t *paint)
+{
+    paint->image = sfImage_createFromColor(WIDTH_IMAGE,
+    HEIGHT_IMAGE, sfWhite);
+    paint->textures = create_textures(paint);
+    if (paint->textures == NULL)
         return sfFalse;
-    game->drawing = init_drawing(game);
-    game->buttons = create_buttons(game);
-    if (game->buttons == NULL)
+    paint->drawing = init_drawing(paint);
+    paint->menus = create_menus(paint);
+    if (paint->menus == NULL)
         return sfFalse;
     return sfTrue;
 }

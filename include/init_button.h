@@ -11,25 +11,16 @@
     #include "button_state.h"
     #include "button.h"
     #include "texture.h"
+    #include "drop_menu.h"
 
 typedef struct init_buttons_s {
     sfVector2f size;
     sfVector2f position;
-    sfBool (*function)(button_t **);
+    sfBool (*function)(graphical_tool_t *);
     enum e_texture texture;
     enum e_state state;
+    sfBool hide;
+    enum e_drop_menu menu;
 } init_buttons_t;
-
-sfBool action_test(button_t **);
-
-static const int INIT_BUTTON_SIZE = 5;
-
-static const init_buttons_t INIT_BUTTON[] = {
-    {{50, 50}, {2 * 300, 50}, action_test, BRUSH, NONE},
-    {{50, 50}, {2 * 375, 50}, action_test, BRUSH, NONE},
-    {{50, 50}, {2 * 450, 50}, action_test, BRUSH, NONE},
-    {{50, 50}, {2 * 525, 50}, action_test, BRUSH, NONE},
-    {{50, 50}, {2 * 600, 50}, action_test, BRUSH, NONE}
-};
 
 #endif /* !INIT_BUTTON_H */

@@ -17,32 +17,50 @@ void free_array(char **array)
     free(array);
 }
 
-static void destroy_textures(game_t *game)
+static void destroy_textures(paint_t *paint)
 {
-    if (game->textures == NULL)
+    if (paint->textures == NULL)
         return;
     for (int i = 0; i < SIZE; i++) {
-        sfTexture_destroy(game->textures[i]);
+        sfTexture_destroy(paint->textures[i]);
     }
-    free(game->textures);
+    free(paint->textures);
 }
 
-static void destroy_buttons(game_t *game)
+static void destroy_button(button_t *button)
 {
-    if (game->buttons == NULL)
+    sfRectangleShape_destroy(button->rect);
+    sfSprite_destroy(button->sprite);
+    free(button);
+}
+
+static void destroy_buttons(button_t **buttons)
+{
+    if (buttons == NULL)
         return;
-    for (int i = 0; game->buttons[i] != NULL; i++) {
-        sfRectangleShape_destroy(game->buttons[i]->rect);
-        free(game->buttons[i]);
+    for (int i = 0; buttons[i] != NULL; i++) {
+        destroy_button(buttons[i]);
     }
-    free(game->buttons);
+    free(buttons);
 }
 
-void destroy_variable(sfRenderWindow *window, game_t *game)
+static void destroy_drop_menus(paint_t *paint)
 {
-    destroy_buttons(game);
-    destroy_textures(game);
-    sfSprite_destroy(game->drawing);
-    sfImage_destroy(game->image);
+    if (paint->menus == NULL)
+        return;
+    for (int i = 0; paint->menus[i] != NULL; i++) {
+        destroy_button(paint->menus[i]->menu_button);
+        destroy_buttons(paint->menus[i]->buttons);
+        free(paint->menus[i]);
+    }
+    free(paint->menus);
+}
+
+void destroy_variable(sfRenderWindow *window, paint_t *paint)
+{
+    destroy_drop_menus(paint);
+    destroy_textures(paint);
+    sfSprite_destroy(paint->drawing);
+    sfImage_destroy(paint->image);
     sfRenderWindow_destroy(window);
 }

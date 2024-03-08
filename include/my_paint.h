@@ -12,53 +12,44 @@
     #include <stddef.h>
     #include <stdlib.h>
     #include "button.h"
+    #include "init_button.h"
+    #include "graphical_tool.h"
 
-// typedef struct pixel_s {
-//     sfVector2f placement;
-//     sfUint8 *rgba;
-// } pixel_t;
-
-typedef struct graphical_tool_s {
-    unsigned int height;
-    unsigned int width;
-    sfUint8 opacity;
-} graphical_tool_t;
-
-typedef struct game_s {
+typedef struct paint_s {
     sfImage *image;
     sfTexture **textures;
     sfSprite *drawing;
-    button_t **buttons;
-} game_t;
+    drop_menu_t **menus;
+} paint_t;
 
 sfBool check_env(char **env);
 
 // create, initialize and set
 
-sfBool create_game(game_t *game);
-void set_window_entities(game_t *game, sfSprite *background);
-button_t *init_button(game_t *game, int i);
-sfSprite *init_drawing(game_t *game);
-
-// add
-
+sfBool create_paint(paint_t *paint);
+graphical_tool_t create_tools(void);
+void set_window_entities(paint_t *paint, sfSprite *background);
+drop_menu_t *init_drop_menu(paint_t *paint, int i);
+button_t *init_button(paint_t *paint, const init_buttons_t *);
+sfSprite *init_drawing(paint_t *paint);
 
 // print
 
-void draw_entities(sfRenderWindow *, sfSprite *, game_t *);
+void draw_entities(sfRenderWindow *, sfSprite *, paint_t *);
 void draw_pixels(sfRenderWindow *, sfSprite *);
 
 // events
 
-sfBool action_test(button_t **);
+sfBool action_test(graphical_tool_t *);
 sfBool is_button_hover(button_t *, sfMouseMoveEvent *);
 sfBool is_button_clicked(button_t *, sfMouseButtonEvent *);
-sfBool analyze_events(sfRenderWindow *, sfEvent *, game_t *);
+sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
+    graphical_tool_t *);
 
 // destroy and free
 
 void free_array(char **array);
-void destroy_variable(sfRenderWindow *window, game_t *game);
+void destroy_variable(sfRenderWindow *window, paint_t *paint);
 
 // save
 
