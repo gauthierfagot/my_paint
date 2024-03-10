@@ -53,12 +53,14 @@ void set_pixel(sfRenderWindow *window, paint_t *paint, sfEvent *event,
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
 
+    (void)event;
     if (check_collision(paint, mouse, &tools) == sfFalse)
         return;
     if (tools.tool == ERASER)
         tools.color = sfWhite;
     if (tools.shape == SQUARE)
-        draw_square(paint, mouse, tools);
-    if (tools.shape == CIRCLE)
+        return draw_square(paint, mouse, tools);
+    else if (tools.shape == CIRCLE)
         return;
+    return;
 }

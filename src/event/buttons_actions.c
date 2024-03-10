@@ -7,7 +7,7 @@
 
 #include "my_paint.h"
 
-void action_test(drop_menu_t *menu, button_t *button, graphical_tool_t *tools)
+void action_test(drop_menu_t *menu, button_t *, graphical_tool_t *tools)
 {
     tools->color = sfRed;
     menu->menu_button->hide = sfTrue;

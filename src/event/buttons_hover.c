@@ -16,6 +16,7 @@ static void is_button_hover(drop_menu_t *menu, button_t *button,
 {
     sfFloatRect rect = sfRectangleShape_getGlobalBounds(button->rect);
 
+    (void)menu;
     if (button->state == INVALID)
         return;
     if (sfFloatRect_contains(&rect, mouse_event->x, mouse_event->y)) {
