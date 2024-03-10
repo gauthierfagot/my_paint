@@ -9,7 +9,7 @@
     #define BUTTON_STATE_H
 
 typedef enum e_state {
-    NONE = 0,
+    DEFAULT = 0,
     INVALID,
     HOVER,
     PRESSED,

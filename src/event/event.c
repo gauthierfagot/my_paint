@@ -17,13 +17,11 @@ sfBool analyze_events(sfRenderWindow *window, sfEvent *event, paint_t *paint,
     while (sfRenderWindow_pollEvent(window, event)) {
         if (event->type == sfEvtClosed)
             return sfFalse;
-        is_buttons_hover(event, paint);
-        if (event->type == sfEvtMouseButtonPressed) {
-            is_buttons_clicked(event, paint, tools);
-        }
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
+        are_buttons_hover(event, paint);
+        if (event->type == sfEvtMouseButtonPressed)
+            are_buttons_clicked(event, paint, tools);
+        if (sfMouse_isButtonPressed(sfMouseLeft))
             set_pixel(window, paint, event, *tools);
-        }
     }
     return sfTrue;
 }

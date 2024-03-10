@@ -45,6 +45,8 @@ button_t *init_button(paint_t *paint, const init_buttons_t *init_button_array)
 {
     button_t *button = malloc(sizeof(button_t));
 
+    if (button == NULL)
+        return NULL;
     button->rect = sfRectangleShape_create();
     if (button->rect == NULL)
         return NULL;
@@ -71,15 +73,19 @@ static int search_init_button_size(int menu)
 
 static button_t **create_buttons(paint_t *paint, int menu)
 {
-    int size = search_init_button_size(menu);
     int j = 0;
+    int size = search_init_button_size(menu);
     button_t **buttons = malloc(sizeof(button_t *) * (size + 1));
 
+    if (buttons == NULL)
+        return NULL;
     for (int i = 0; i < INIT_BUTTONS_SIZE; i++) {
         if (INIT_BUTTONS[i].menu == menu) {
             buttons[j] = init_button(paint, &INIT_BUTTONS[i]);
             j++;
         }
+        if (INIT_BUTTONS[i].menu == menu && buttons[j - 1] == NULL)
+            return NULL;
     }
     buttons[j] = NULL;
     return buttons;
@@ -89,6 +95,8 @@ drop_menu_t *init_drop_menu(paint_t *paint, int i)
 {
     drop_menu_t *menu = malloc(sizeof(drop_menu_t));
 
+    if (menu == NULL)
+        return NULL;
     menu->menu_button = init_button(paint, &INIT_DROP_MENU[i]);
     if (menu->menu_button == NULL)
         return NULL;

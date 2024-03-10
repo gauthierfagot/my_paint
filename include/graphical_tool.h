@@ -13,7 +13,7 @@ typedef enum e_tool {
     MOUSE = 0,
     PENCIL,
     BRUSH,
-    ERASED
+    ERASER
 } e_tool;
 
 typedef enum e_shape {
@@ -27,7 +27,6 @@ typedef struct graphical_tool_s {
     enum e_tool tool;
     enum e_shape shape;
     sfColor color;
-    sfUint8 opacity;
 } graphical_tool_t;
 
 #endif /* !GRAPHICAL_TOOL_H */

@@ -4,7 +4,7 @@
 ** File description:
 ** check_env
 */
-#include "stddef.h"
+
 #include "my_paint.h"
 #include "lib.h"
 

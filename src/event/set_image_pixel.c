@@ -55,7 +55,7 @@ void set_pixel(sfRenderWindow *window, paint_t *paint, sfEvent *event,
 
     if (check_collision(paint, mouse, &tools) == sfFalse)
         return;
-    if (tools.tool == ERASED)
+    if (tools.tool == ERASER)
         tools.color = sfWhite;
     if (tools.shape == SQUARE)
         draw_square(paint, mouse, tools);

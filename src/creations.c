@@ -17,6 +17,8 @@ static drop_menu_t **create_menus(paint_t *paint)
     drop_menu_t **menus = malloc(sizeof(drop_menu_t *) *
     (INIT_DROP_MENU_SIZE + 1));
 
+    if (menus == NULL)
+        return NULL;
     for (int i = 0; i < INIT_DROP_MENU_SIZE; i++) {
         menus[i] = init_drop_menu(paint, i);
         if (menus[i] == NULL)
@@ -30,6 +32,8 @@ static sfTexture **create_textures(paint_t *paint)
 {
     sfTexture **textures = malloc(sizeof(sfTexture *) * SIZE);
 
+    if (textures == NULL)
+        return NULL;
     textures[DRAWING] = sfTexture_createFromImage(paint->image, NULL);
     for (int i = 1; i < SIZE; i++) {
         textures[i] = sfTexture_createFromFile(ARRAY_TEXTURE[i - 1],
@@ -49,7 +53,6 @@ graphical_tool_t create_tools(void)
     tools.tool = MOUSE;
     tools.shape = SQUARE;
     tools.color = sfBlack;
-    tools.opacity = 1;
     return tools;
 }
 

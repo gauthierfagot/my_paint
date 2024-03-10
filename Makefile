@@ -5,17 +5,18 @@
 ## Makefile
 ##
 
-SRC     =	src/main.c				\
-			src/event/event.c				\
-			src/creations.c			\
-			src/set_window.c		\
-			src/draw_entities.c		\
-			src/initializations.c	\
-			src/free_and_destroy.c	\
-			src/check_env.c	\
+SRC     =	src/main.c					\
+			src/check_env.c				\
+			src/creations.c				\
+			src/set_window.c			\
+			src/event/event.c			\
+			src/draw_entities.c			\
+			src/initializations.c		\
+			src/free_and_destroy.c		\
+			src/event/buttons_hover.c	\
+			src/event/buttons_actions.c	\
 			src/event/buttons_clicked.c	\
 			src/event/set_image_pixel.c	\
-			src/event/buttons_hover.c	\
 
 OBJ     =	$(SRC:.c=.o)
 

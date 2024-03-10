@@ -12,9 +12,11 @@
 void central_loop(sfRenderWindow *window, paint_t *paint)
 {
     sfEvent event;
-    sfSprite *background = sfSprite_create();
     graphical_tool_t tools = create_tools();
+    sfSprite *background = sfSprite_create();
 
+    if (background == NULL)
+        return;
     set_window_entities(paint, background);
     while (sfRenderWindow_isOpen(window)) {
         if (analyze_events(window, &event, paint, &tools) == sfFalse)
@@ -35,11 +37,13 @@ int main(int argc, char **argv, char **env)
     (void)argv;
     if (check_env(env) == sfFalse || argc != 1)
         return 84;
-    if (create_paint(&paint) == sfFalse)
-        return 84;
     window = sfRenderWindow_create(mode, "Paint", sfResize | sfClose, NULL);
     if (!window)
         return 84;
+    if (create_paint(&paint) == sfFalse) {
+        sfRenderWindow_destroy(window);
+        return 84;
+    }
     sfRenderWindow_setFramerateLimit(window, FRAME);
     central_loop(window, &paint);
     sfRenderWindow_close(window);

@@ -15,7 +15,7 @@ typedef struct drop_menu_s {
 } drop_menu_t;
 
 typedef enum e_drop_menu {
-    BUTTON = -1,
+    NONE = -1,
     FILE,
     EDITION,
     INFO
