@@ -1,42 +1,16 @@
 /*
 ** EPITECH PROJECT, 2024
-** event
+** set_pixel_image
 ** File description:
-** event
+** set_pixel_image
 */
+
 #include <math.h>
 #include "button_state.h"
 #include "my_paint.h"
 #include "define.h"
 #include "button.h"
 #include "texture.h"
-
-// sfBool is_button_clicked(button_t *button, sfMouseButtonEvent *mouse_event)
-// {
-//     sfFloatRect rect = sfRectangleShape_getGlobalBounds(button->rect);
-
-//     if (mouse_event->x >= rect.left &&
-//     mouse_event->x <= rect.left + rect.width
-//     && mouse_event->y >= rect.top &&
-//     mouse_event->y <= rect.top + rect.height) {
-//         button->state = PRESSED;
-//         return sfTrue;
-//     }
-//     button->state = CLICKED;
-//     return sfFalse;
-// }
-
-// sfBool is_button_hover(button_t *button, sfMouseMoveEvent *mouse_event)
-// {
-//     sfFloatRect rect = sfRectangleShape_getGlobalBounds(button->rect);
-
-//     if (sfFloatRect_contains(&rect, mouse_event->x, mouse_event->y)) {
-//         button->state = HOVER;
-//         return sfTrue;
-//     }
-//     button->state = CLICKED;
-//     return sfFalse;
-// }
 
 void draw_square(paint_t *paint, sfVector2i mouse, graphical_tool_t tools)
 {
@@ -87,22 +61,4 @@ void set_pixel(sfRenderWindow *window, paint_t *paint, sfEvent *event,
         draw_square(paint, mouse, tools);
     if (tools.shape == CIRCLE)
         return;
-}
-
-sfBool action_test(graphical_tool_t *)
-{
-    return sfTrue;
-}
-
-sfBool analyze_events(sfRenderWindow *window, sfEvent *event, paint_t *paint,
-    graphical_tool_t *tools)
-{
-    while (sfRenderWindow_pollEvent(window, event)) {
-        if (event->type == sfEvtClosed)
-            return sfFalse;
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            set_pixel(window, paint, event, *tools);
-        }
-    }
-    return sfTrue;
 }

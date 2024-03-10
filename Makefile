@@ -6,13 +6,16 @@
 ##
 
 SRC     =	src/main.c				\
-			src/event.c				\
+			src/event/event.c				\
 			src/creations.c			\
 			src/set_window.c		\
 			src/draw_entities.c		\
 			src/initializations.c	\
 			src/free_and_destroy.c	\
 			src/check_env.c	\
+			src/event/buttons_clicked.c	\
+			src/event/set_image_pixel.c	\
+			src/event/buttons_hover.c	\
 
 OBJ     =	$(SRC:.c=.o)
 

@@ -40,9 +40,12 @@ void draw_pixels(sfRenderWindow *, sfSprite *);
 
 // events
 
-sfBool action_test(graphical_tool_t *);
-sfBool is_button_hover(button_t *, sfMouseMoveEvent *);
-sfBool is_button_clicked(button_t *, sfMouseButtonEvent *);
+void action_test(drop_menu_t *, button_t *, graphical_tool_t *);
+void drop_menu_action(drop_menu_t *, button_t *, graphical_tool_t *);
+void is_buttons_clicked(sfEvent *, paint_t *, graphical_tool_t *);
+void is_buttons_hover(sfEvent *event, paint_t *paint);
+void set_pixel(sfRenderWindow *window, paint_t *paint, sfEvent *event,
+    graphical_tool_t tools);
 sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
     graphical_tool_t *);
 

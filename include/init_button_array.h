@@ -13,7 +13,7 @@
     #include "texture.h"
     #include "drop_menu.h"
 
-sfBool action_test(graphical_tool_t *);
+void action_test(drop_menu_t *, button_t *, graphical_tool_t *);
 
 static const int INIT_BUTTONS_SIZE = 9;
 
