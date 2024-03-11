@@ -9,7 +9,6 @@
 #include "define.h"
 #include "init_button.h"
 #include "texture.h"
-#include "init_button_array.h"
 #include "init_drop_menu_array.h"
 
 sfSprite *init_drawing(paint_t *paint)
@@ -55,40 +54,8 @@ button_t *init_button(paint_t *paint, const init_buttons_t *init_button_array)
         return NULL;
     button->function = init_button_array->function;
     button->state = init_button_array->state;
-    button->hide = init_button_array->hide;
     set_button(paint, init_button_array, button);
     return button;
-}
-
-static int search_init_button_size(int menu)
-{
-    int size = 0;
-
-    for (int i = 0; i < INIT_BUTTONS_SIZE; i++) {
-        if (INIT_BUTTONS[i].menu == menu)
-            size++;
-    }
-    return size;
-}
-
-static button_t **create_buttons(paint_t *paint, int menu)
-{
-    int j = 0;
-    int size = search_init_button_size(menu);
-    button_t **buttons = malloc(sizeof(button_t *) * (size + 1));
-
-    if (buttons == NULL)
-        return NULL;
-    for (int i = 0; i < INIT_BUTTONS_SIZE; i++) {
-        if (INIT_BUTTONS[i].menu == menu) {
-            buttons[j] = init_button(paint, &INIT_BUTTONS[i]);
-            j++;
-        }
-        if (INIT_BUTTONS[i].menu == menu && buttons[j - 1] == NULL)
-            return NULL;
-    }
-    buttons[j] = NULL;
-    return buttons;
 }
 
 drop_menu_t *init_drop_menu(paint_t *paint, int i)
@@ -103,5 +70,6 @@ drop_menu_t *init_drop_menu(paint_t *paint, int i)
     menu->buttons = create_buttons(paint, INIT_DROP_MENU[i].menu);
     if (menu->buttons == NULL)
         return NULL;
+    menu->hide = sfTrue;
     return menu;
 }

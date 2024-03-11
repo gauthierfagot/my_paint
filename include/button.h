@@ -16,9 +16,8 @@
 typedef struct button_s {
     sfRectangleShape *rect;
     sfSprite *sprite;
-    void (*function)(drop_menu_t *, struct button_s *, graphical_tool_t *);
+    void (*function)(void *, graphical_tool_t *);
     enum e_state state;
-    sfBool hide;
 } button_t;
 
 #endif /* !BUTTON_H */

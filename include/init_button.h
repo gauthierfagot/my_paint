@@ -16,10 +16,9 @@
 typedef struct init_buttons_s {
     sfVector2f size;
     sfVector2f position;
-    void (*function)(drop_menu_t *, button_t *, graphical_tool_t *);
+    void (*function)(void *, graphical_tool_t *);
     enum e_texture texture;
     enum e_state state;
-    sfBool hide;
     enum e_drop_menu menu;
 } init_buttons_t;
 

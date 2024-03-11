@@ -48,12 +48,11 @@ sfBool check_collision(paint_t *paint, sfVector2i mouse,
     return sfTrue;
 }
 
-void set_pixel(sfRenderWindow *window, paint_t *paint, sfEvent *event,
+void set_pixel(sfRenderWindow *window, paint_t *paint,
     graphical_tool_t tools)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
 
-    (void)event;
     if (check_collision(paint, mouse, &tools) == sfFalse)
         return;
     if (tools.tool == ERASER)

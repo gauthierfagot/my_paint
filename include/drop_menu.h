@@ -12,6 +12,7 @@
 typedef struct drop_menu_s {
     struct button_s *menu_button;
     struct button_s **buttons;
+    sfBool hide;
 } drop_menu_t;
 
 typedef enum e_drop_menu {

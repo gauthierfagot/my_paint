@@ -13,29 +13,33 @@
     #include "texture.h"
     #include "drop_menu.h"
 
-void action_test(drop_menu_t *, button_t *, graphical_tool_t *);
+void action_test(void *, graphical_tool_t *);
 
-static const int INIT_BUTTONS_SIZE = 9;
+static const int INIT_BUTTONS_SIZE = 11;
 
 static const init_buttons_t INIT_BUTTONS[] = {
     {{45, 45}, {450, 100}, action_test, NEW_FILE_TEXTURE, DEFAULT,
-        sfFalse, FILE},
+        FILE},
     {{45, 45}, {450, 150}, action_test, OPEN_FILE_TEXTURE, DEFAULT,
-        sfFalse, FILE},
+        FILE},
     {{45, 45}, {450, 200}, action_test, SAVE_FILE_TEXTURE, DEFAULT,
-        sfFalse, FILE},
+        FILE},
     {{45, 45}, {575, 100}, action_test, BRUSH_TEXTURE, DEFAULT,
-        sfFalse, EDITION},
+        EDITION},
     {{45, 45}, {575, 150}, action_test, DROPPER_TEXTURE, DEFAULT,
-        sfFalse, EDITION},
+        EDITION},
     {{45, 45}, {575, 200}, action_test, ERASER_TEXTURE, DEFAULT,
-        sfFalse, EDITION},
+        EDITION},
     {{45, 45}, {575, 250}, action_test, PENCIL_TEXTURE, DEFAULT,
-        sfFalse, EDITION},
+        EDITION},
     {{45, 45}, {700, 100}, action_test, HELP_TEXTURE, DEFAULT,
-        sfFalse, INFO},
+        INFO},
     {{45, 45}, {700, 150}, action_test, HELP_TEXTURE, DEFAULT,
-        sfFalse, INFO}
+        INFO},
+    {{45, 45}, {950, 50}, action_test, HELP_TEXTURE, DEFAULT,
+        NONE},
+    {{45, 45}, {1050, 50}, action_test, HELP_TEXTURE, DEFAULT,
+        NONE}
 };
 
 #endif /* !INIT_BUTTON_ARRAY_H */

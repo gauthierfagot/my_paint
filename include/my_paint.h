@@ -20,6 +20,7 @@ typedef struct paint_s {
     sfTexture **textures;
     sfSprite *drawing;
     drop_menu_t **menus;
+    button_t **buttons;
 } paint_t;
 
 sfBool check_env(char **env);
@@ -28,6 +29,7 @@ sfBool check_env(char **env);
 
 sfBool create_paint(paint_t *paint);
 graphical_tool_t create_tools(void);
+button_t **create_buttons(paint_t *paint, int menu);
 void set_window_entities(paint_t *paint, sfSprite *background);
 drop_menu_t *init_drop_menu(paint_t *paint, int i);
 button_t *init_button(paint_t *paint, const init_buttons_t *);
@@ -40,11 +42,11 @@ void draw_pixels(sfRenderWindow *, sfSprite *);
 
 // events
 
-void action_test(drop_menu_t *, button_t *, graphical_tool_t *);
-void drop_menu_action(drop_menu_t *, button_t *, graphical_tool_t *);
+void action_test(void *, graphical_tool_t *);
+void drop_menu_action(void *, graphical_tool_t *);
 void are_buttons_clicked(sfEvent *, paint_t *, graphical_tool_t *);
 void are_buttons_hover(sfEvent *event, paint_t *paint);
-void set_pixel(sfRenderWindow *window, paint_t *paint, sfEvent *event,
+void set_pixel(sfRenderWindow *window, paint_t *paint,
     graphical_tool_t tools);
 sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
     graphical_tool_t *);

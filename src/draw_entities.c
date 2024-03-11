@@ -14,13 +14,13 @@ void draw_pixels(sfRenderWindow *window, sfSprite *drawing)
     sfRenderWindow_drawSprite(window, drawing, NULL);
 }
 
-void draw_menu_buttons(sfRenderWindow *window, drop_menu_t *menu)
+void draw_buttons(sfRenderWindow *window, button_t **buttons)
 {
-    for (size_t j = 0; menu->buttons[j] != NULL; j++) {
+    for (size_t j = 0; buttons[j] != NULL; j++) {
         sfRenderWindow_drawRectangleShape(window,
-        menu->buttons[j]->rect, NULL);
+        buttons[j]->rect, NULL);
         sfRenderWindow_drawSprite(window,
-        menu->buttons[j]->sprite, NULL);
+        buttons[j]->sprite, NULL);
     }
 }
 
@@ -31,8 +31,8 @@ void draw_drop_menus(sfRenderWindow *window, drop_menu_t **menus)
         menus[i]->menu_button->rect, NULL);
         sfRenderWindow_drawSprite(window,
         menus[i]->menu_button->sprite, NULL);
-        if (menus[i]->menu_button->hide == sfFalse)
-            draw_menu_buttons(window, menus[i]);
+        if (menus[i]->hide == sfFalse)
+            draw_buttons(window, menus[i]->buttons);
     }
 }
 
@@ -42,4 +42,5 @@ void draw_entities(sfRenderWindow *window, sfSprite *background,
     sfRenderWindow_drawSprite(window, background, NULL);
     draw_pixels(window, paint->drawing);
     draw_drop_menus(window, paint->menus);
+    draw_buttons(window, paint->buttons);
 }

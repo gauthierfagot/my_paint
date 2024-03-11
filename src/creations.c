@@ -11,6 +11,7 @@
 #include "define.h"
 #include "init_drop_menu_array.h"
 #include "graphical_tool.h"
+#include "init_button_array.h"
 
 static drop_menu_t **create_menus(paint_t *paint)
 {
@@ -56,6 +57,37 @@ graphical_tool_t create_tools(void)
     return tools;
 }
 
+static int search_init_button_size(int menu)
+{
+    int size = 0;
+
+    for (int i = 0; i < INIT_BUTTONS_SIZE; i++) {
+        if (INIT_BUTTONS[i].menu == menu)
+            size++;
+    }
+    return size;
+}
+
+button_t **create_buttons(paint_t *paint, int menu)
+{
+    int j = 0;
+    int size = search_init_button_size(menu);
+    button_t **buttons = malloc(sizeof(button_t *) * (size + 1));
+
+    if (buttons == NULL)
+        return NULL;
+    for (int i = 0; i < INIT_BUTTONS_SIZE; i++) {
+        if (INIT_BUTTONS[i].menu == menu) {
+            buttons[j] = init_button(paint, &INIT_BUTTONS[i]);
+            j++;
+        }
+        if (INIT_BUTTONS[i].menu == menu && buttons[j - 1] == NULL)
+            return NULL;
+    }
+    buttons[j] = NULL;
+    return buttons;
+}
+
 sfBool create_paint(paint_t *paint)
 {
     paint->image = sfImage_createFromColor(WIDTH_IMAGE,
@@ -66,6 +98,9 @@ sfBool create_paint(paint_t *paint)
     paint->drawing = init_drawing(paint);
     paint->menus = create_menus(paint);
     if (paint->menus == NULL)
+        return sfFalse;
+    paint->buttons = create_buttons(paint, NONE);
+    if (paint->buttons == NULL)
         return sfFalse;
     return sfTrue;
 }
