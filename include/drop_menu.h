@@ -15,11 +15,11 @@ typedef struct drop_menu_s {
     sfBool hide;
 } drop_menu_t;
 
-typedef enum e_drop_menu {
+typedef enum e_menu {
     NONE = -1,
     FILE,
     EDITION,
     INFO
-} e_drop_menu;
+} e_menu;
 
 #endif /* !DROP_MENU_H */

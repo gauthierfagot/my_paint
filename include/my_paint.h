@@ -42,14 +42,14 @@ void draw_pixels(sfRenderWindow *, sfSprite *);
 
 // events
 
-void action_test(void *, graphical_tool_t *);
-void drop_menu_action(void *, graphical_tool_t *);
-void are_buttons_clicked(sfEvent *, paint_t *, graphical_tool_t *);
+void set_pixel(sfRenderWindow *, paint_t *, graphical_tool_t);
 void are_buttons_hover(sfEvent *event, paint_t *paint);
-void set_pixel(sfRenderWindow *window, paint_t *paint,
-    graphical_tool_t tools);
+void drop_menu_action(void *, graphical_tool_t *);
+void action_test(void *, graphical_tool_t *);
 sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
     graphical_tool_t *);
+void handle_pressed_button(sfEvent *, paint_t *, graphical_tool_t *,
+sfRenderWindow *);
 
 // destroy and free
 
@@ -59,5 +59,29 @@ void destroy_variable(sfRenderWindow *window, paint_t *paint);
 // save
 
 void save_drawing(const sfImage *image, const char *name);
+
+// colors //
+
+// shades
+
+void set_white(void *, graphical_tool_t *tools);
+void set_grey(void *, graphical_tool_t *tools);
+void set_brown(void *, graphical_tool_t *tools);
+void set_black(void *, graphical_tool_t *tools);
+
+// primary
+
+void set_red(void *, graphical_tool_t *tools);
+void set_blue(void *, graphical_tool_t *tools);
+void set_green(void *, graphical_tool_t *tools);
+void set_yellow(void *, graphical_tool_t *tools);
+
+// others
+
+void set_orange(void *, graphical_tool_t *tools);
+void set_purple(void *, graphical_tool_t *tools);
+void set_beige(void *, graphical_tool_t *tools);
+void set_pink(void *, graphical_tool_t *tools);
+void set_cyan(void *, graphical_tool_t *tools);
 
 #endif /* !PAINT */

@@ -18,10 +18,8 @@ sfBool analyze_events(sfRenderWindow *window, sfEvent *event, paint_t *paint,
         if (event->type == sfEvtClosed)
             return sfFalse;
         are_buttons_hover(event, paint);
-        if (event->type == sfEvtMouseButtonPressed)
-            are_buttons_clicked(event, paint, tools);
         if (sfMouse_isButtonPressed(sfMouseLeft))
-            set_pixel(window, paint, *tools);
+            handle_pressed_button(event, paint, tools, window);
     }
     return sfTrue;
 }

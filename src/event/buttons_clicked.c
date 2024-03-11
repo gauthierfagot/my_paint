@@ -37,17 +37,31 @@ static sfBool check_menu_buttons_clicked(sfEvent *event, paint_t *paint,
     return sfFalse;
 }
 
-void are_buttons_clicked(sfEvent *event, paint_t *paint,
+static sfBool are_buttons_clicked(sfEvent *event, paint_t *paint,
     graphical_tool_t *tools)
 {
     for (size_t i = 0; paint->menus[i] != NULL; i++) {
-        is_button_clicked(paint->menus[i], paint->menus[i]->menu_button,
-            tools, &event->mouseButton);
-        if (check_menu_buttons_clicked(event, paint, tools, i))
+        if (is_button_clicked(paint->menus[i], paint->menus[i]->menu_button,
+            tools, &event->mouseButton))
+            return sfTrue;
+        if (check_menu_buttons_clicked(event, paint, tools, i)) {
             paint->menus[i]->hide = sfTrue;
+            return sfTrue;
+        }
     }
     for (size_t i = 0; paint->buttons[i] != NULL; i++) {
-        is_button_clicked(NULL, paint->buttons[i],
-            tools, &event->mouseButton);
+        if (is_button_clicked(NULL, paint->buttons[i],
+            tools, &event->mouseButton))
+                return sfTrue;
     }
+    return sfFalse;
+}
+
+void handle_pressed_button(sfEvent *event, paint_t *paint,
+    graphical_tool_t *tools, sfRenderWindow *window)
+{
+    if (are_buttons_clicked(event, paint, tools))
+        return;
+    set_pixel(window, paint, *tools);
+    return;
 }

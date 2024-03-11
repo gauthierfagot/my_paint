@@ -5,11 +5,18 @@
 ** button_action
 */
 
-#include "my_paint.h"
+#include "color.h"
 
 void action_test(void *, graphical_tool_t *tools)
 {
-    tools->color = sfRed;
+    tools->color = color_tab[BLUE];
+    return;
+}
+
+void set_blue(void *, graphical_tool_t *tools)
+{
+    tools->color = color_tab[BLUE];
+    return;
 }
 
 void drop_menu_action(void *data, graphical_tool_t *)

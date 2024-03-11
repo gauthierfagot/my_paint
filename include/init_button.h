@@ -19,7 +19,7 @@ typedef struct init_buttons_s {
     void (*function)(void *, graphical_tool_t *);
     enum e_texture texture;
     enum e_state state;
-    enum e_drop_menu menu;
+    enum e_menu menu;
 } init_buttons_t;
 
 #endif /* !INIT_BUTTON_H */
