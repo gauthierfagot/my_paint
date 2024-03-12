@@ -87,9 +87,9 @@ static const init_buttons_t INIT_BUTTONS[] = {
         COLORS, &color_tab[BEIGE], sfFalse},
     {{25, 25}, {1080, 75}, set_cyan, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[CYAN], sfFalse},
-    {{45, 45}, {1200, 90}, set_circle, CIRCLE_TEXTURE, DEFAULT,
+    {{45, 45}, {1250, 90}, set_circle, CIRCLE_TEXTURE, DEFAULT,
         SHAPES, &sfWhite, sfFalse},
-    {{45, 45}, {1200, 20}, set_square, SQUARE_TEXTURE, DEFAULT,
+    {{45, 45}, {1250, 20}, set_square, SQUARE_TEXTURE, DEFAULT,
         SHAPES, &sfWhite, sfFalse},
 };
 
