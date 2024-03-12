@@ -50,12 +50,6 @@ sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
 void handle_pressed_button(sfEvent *, paint_t *, graphical_tool_t *,
     sfRenderWindow *);
 
-// button action
-
-void action_test(void *, graphical_tool_t *);
-void eraser_action(void *, graphical_tool_t *tools);
-void brush_action(void *, graphical_tool_t *tools);
-void pencil_action(void *, graphical_tool_t *tools);
 
 // destroy and free
 
@@ -89,5 +83,19 @@ void set_purple(void *, graphical_tool_t *tools);
 void set_beige(void *, graphical_tool_t *tools);
 void set_pink(void *, graphical_tool_t *tools);
 void set_cyan(void *, graphical_tool_t *tools);
+
+// tools
+
+void default_action(void *, graphical_tool_t *);
+void eraser_action(void *, graphical_tool_t *tools);
+void brush_action(void *, graphical_tool_t *tools);
+void pencil_action(void *, graphical_tool_t *tools);
+
+// set //
+
+// set_shapes
+
+void set_circle(void *, graphical_tool_t *tools);
+void set_square(void *, graphical_tool_t *tools);
 
 #endif /* !PAINT */

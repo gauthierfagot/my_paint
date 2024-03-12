@@ -14,7 +14,7 @@ typedef enum e_menu {
     EDITION,
     INFO,
     COLORS,
-    SHAPE
+    SHAPES
 } e_menu;
 
 #endif /* !MENU_H */

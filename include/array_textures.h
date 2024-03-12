@@ -9,7 +9,7 @@
     #define ARRAY_TEXTURES_H_
     #include "texture.h"
 
-static const char *ARRAY_TEXTURE[11] = {
+static const char *ARRAY_TEXTURE[13] = {
     "image/background.png",
     "image/files/file_editor.png",
     "image/files/new_file.png",
@@ -20,7 +20,9 @@ static const char *ARRAY_TEXTURE[11] = {
     "image/tools/dropper.png",
     "image/tools/eraser.png",
     "image/tools/pencil.png",
-    "image/help/help.png"
+    "image/help/help.png",
+    "image/shapes/circle.png",
+    "image/shapes/square.png",
 };
 
 #endif /* !ARRAY_TEXTURES_H_ */

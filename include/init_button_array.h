@@ -15,7 +15,7 @@
     #include "menu.h"
     #include "color.h"
 
-void action_test(void *, graphical_tool_t *);
+void default_action(void *, graphical_tool_t *);
 void eraser_action(void *, graphical_tool_t *tools);
 void brush_action(void *, graphical_tool_t *tools);
 void pencil_action(void *, graphical_tool_t *tools);
@@ -40,26 +40,26 @@ void set_pink(void *, graphical_tool_t *tools);
 void set_cyan(void *, graphical_tool_t *tools);
 
 
-static const int INIT_BUTTONS_SIZE = 22;
+static const int INIT_BUTTONS_SIZE = 24;
 
 static const init_buttons_t INIT_BUTTONS[] = {
-    {{45, 45}, {450, 100}, action_test, NEW_FILE_TEXTURE, DEFAULT,
+    {{45, 45}, {450, 100}, default_action, NEW_FILE_TEXTURE, DEFAULT,
         FILE, &sfWhite, sfTrue},
-    {{45, 45}, {450, 150}, action_test, OPEN_FILE_TEXTURE, DEFAULT,
+    {{45, 45}, {450, 150}, default_action, OPEN_FILE_TEXTURE, DEFAULT,
         FILE, &sfWhite, sfTrue},
-    {{45, 45}, {450, 200}, action_test, SAVE_FILE_TEXTURE, DEFAULT,
+    {{45, 45}, {450, 200}, default_action, SAVE_FILE_TEXTURE, DEFAULT,
         FILE, &sfWhite, sfTrue},
     {{45, 45}, {575, 100}, brush_action, BRUSH_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
-    {{45, 45}, {575, 150}, action_test, DROPPER_TEXTURE, DEFAULT,
+    {{45, 45}, {575, 150}, default_action, DROPPER_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
     {{45, 45}, {575, 200}, eraser_action, ERASER_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
     {{45, 45}, {575, 250}, pencil_action, PENCIL_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
-    {{45, 45}, {700, 100}, action_test, HELP_TEXTURE, DEFAULT,
+    {{45, 45}, {700, 100}, default_action, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
-    {{45, 45}, {700, 150}, action_test, HELP_TEXTURE, DEFAULT,
+    {{45, 45}, {700, 150}, default_action, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
     {{25, 25}, {900, 45}, set_black, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[BLACK], sfFalse},
@@ -86,7 +86,11 @@ static const init_buttons_t INIT_BUTTONS[] = {
     {{25, 25}, {990, 75}, set_beige, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[BEIGE], sfFalse},
     {{25, 25}, {1080, 75}, set_cyan, HELP_TEXTURE, DEFAULT,
-        COLORS, &color_tab[CYAN], sfFalse}
+        COLORS, &color_tab[CYAN], sfFalse},
+    {{45, 45}, {1200, 90}, set_circle, CIRCLE_TEXTURE, DEFAULT,
+        SHAPES, &sfWhite, sfFalse},
+    {{45, 45}, {1200, 20}, set_square, SQUARE_TEXTURE, DEFAULT,
+        SHAPES, &sfWhite, sfFalse},
 };
 
 #endif /* !INIT_BUTTON_ARRAY_H */

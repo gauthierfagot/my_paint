@@ -7,7 +7,7 @@
 
 #include "color.h"
 
-void action_test(void *, graphical_tool_t *tools)
+void default_action(void *, graphical_tool_t *tools)
 {
     tools->color = color_tab[BLUE];
     return;

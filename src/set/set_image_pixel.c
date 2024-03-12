@@ -27,7 +27,7 @@ void draw_square(paint_t *paint, sfVector2i mouse, graphical_tool_t tools)
     sfTexture_updateFromImage(paint->textures[DRAWING], paint->image, 0, 0);
 }
 
-static set_pixel_circle(paint_t *paint, sfVector2i mouse,
+static void set_pixel_circle(paint_t *paint, sfVector2i mouse,
     graphical_tool_t tools, int i)
 {
     int radius = tools.width / 2;
@@ -40,12 +40,12 @@ static set_pixel_circle(paint_t *paint, sfVector2i mouse,
             j - position.y, tools.color);
         }
     }
+    return;
 }
 
 void draw_circle(paint_t *paint, sfVector2i mouse, graphical_tool_t tools)
 {
     int radius = tools.width / 2;
-    sfVector2f position = sfSprite_getPosition(paint->drawing);
 
     for (int i = -radius + mouse.x; i <= radius + mouse.x; i++) {
         set_pixel_circle(paint, mouse, tools, i);

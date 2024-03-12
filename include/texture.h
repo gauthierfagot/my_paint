@@ -21,6 +21,8 @@ typedef enum e_texture {
     ERASER_TEXTURE,
     PENCIL_TEXTURE,
     HELP_TEXTURE,
+    CIRCLE_TEXTURE,
+    SQUARE_TEXTURE,
     SIZE
 } e_texture;
 
