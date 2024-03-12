@@ -24,7 +24,7 @@ void central_loop(sfRenderWindow *window, paint_t *paint)
             break;
         draw_entities(window, background, paint);
         sfRenderWindow_display(window);
-        sfRenderWindow_clear(window, color_tab[GREY]);
+        sfRenderWindow_clear(window, color_tab[BACKGROUND_COLOR]);
     }
     sfRectangleShape_destroy(background);
 }

@@ -38,7 +38,7 @@ static const init_buttons_t INIT_BUTTONS[] = {
         INFO, &sfWhite, sfTrue},
     {{25, 25}, {900, 45}, set_black, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[BLACK], sfFalse},
-    {{25, 25}, {900, 105}, set_grey, HELP_TEXTURE, DEFAULT,
+    {{25, 25}, {930, 75}, set_grey, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[GREY], sfFalse},
     {{25, 25}, {930, 45}, set_brown, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[BROWN], sfFalse},

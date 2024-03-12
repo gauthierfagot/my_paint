@@ -17,6 +17,6 @@ void set_window_entities(sfRectangleShape *background)
 
     sfRectangleShape_setSize(background, size);
     sfRectangleShape_setPosition(background, position);
-    sfRectangleShape_setFillColor(background, color_tab[GREY]);
+    sfRectangleShape_setFillColor(background, color_tab[BACKGROUND_COLOR]);
     return;
 }
