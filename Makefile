@@ -15,6 +15,7 @@ SRC     =	src/main.c						\
 			src/free_and_destroy.c			\
 			src/set/set_shapes.c			\
 			src/set/set_image_pixel.c		\
+			src/set/set_thickness.c	\
 			src/event/resize_window.c		\
 			src/event/buttons_hover.c		\
 			src/event/buttons_actions.c		\

@@ -10,6 +10,7 @@
 #include "my_paint.h"
 #include "define.h"
 #include "button.h"
+#include "color.h"
 
 static void is_button_hover(button_t *button, sfMouseMoveEvent *mouse_event)
 {
@@ -19,12 +20,16 @@ static void is_button_hover(button_t *button, sfMouseMoveEvent *mouse_event)
         return;
     if (sfFloatRect_contains(&rect, mouse_event->x, mouse_event->y)) {
         if (button->menu != COLORS)
-            sfRectangleShape_setFillColor(button->rect, sfCyan);
+            sfRectangleShape_setFillColor(button->rect, color_tab[CYAN]);
+        else
+            sfRectangleShape_setOutlineColor(button->rect, color_tab[CYAN]);
         button->state = HOVER;
         return;
     }
     if (button->menu != COLORS)
         sfRectangleShape_setFillColor(button->rect, sfWhite);
+    else
+        sfRectangleShape_setOutlineColor(button->rect, sfTransparent);
     button->state = DEFAULT;
     return;
 }

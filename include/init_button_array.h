@@ -15,32 +15,7 @@
     #include "menu.h"
     #include "color.h"
 
-void default_action(void *, graphical_tool_t *);
-void eraser_action(void *, graphical_tool_t *tools);
-void brush_action(void *, graphical_tool_t *tools);
-void pencil_action(void *, graphical_tool_t *tools);
-
-// shades
-void set_white(void *, graphical_tool_t *tools);
-void set_grey(void *, graphical_tool_t *tools);
-void set_brown(void *, graphical_tool_t *tools);
-void set_black(void *, graphical_tool_t *tools);
-
-// primary
-void set_red(void *, graphical_tool_t *tools);
-void set_blue(void *, graphical_tool_t *tools);
-void set_green(void *, graphical_tool_t *tools);
-void set_yellow(void *, graphical_tool_t *tools);
-
-// others
-void set_orange(void *, graphical_tool_t *tools);
-void set_purple(void *, graphical_tool_t *tools);
-void set_beige(void *, graphical_tool_t *tools);
-void set_pink(void *, graphical_tool_t *tools);
-void set_cyan(void *, graphical_tool_t *tools);
-
-
-static const int INIT_BUTTONS_SIZE = 24;
+static const int INIT_BUTTONS_SIZE = 27;
 
 static const init_buttons_t INIT_BUTTONS[] = {
     {{45, 45}, {450, 100}, default_action, NEW_FILE_TEXTURE, DEFAULT,
@@ -87,10 +62,16 @@ static const init_buttons_t INIT_BUTTONS[] = {
         COLORS, &color_tab[BEIGE], sfFalse},
     {{25, 25}, {1080, 75}, set_cyan, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[CYAN], sfFalse},
-    {{45, 45}, {1250, 90}, set_circle, CIRCLE_TEXTURE, DEFAULT,
+    {{45, 45}, {1200, 50}, set_circle, CIRCLE_TEXTURE, DEFAULT,
         SHAPES, &sfWhite, sfFalse},
-    {{45, 45}, {1250, 20}, set_square, SQUARE_TEXTURE, DEFAULT,
+    {{45, 45}, {1250, 50}, set_square, SQUARE_TEXTURE, DEFAULT,
         SHAPES, &sfWhite, sfFalse},
+    {{45, 45}, {1450, 50}, set_small_size, SMALL_SIZE_TEXTURE, DEFAULT,
+        THICKNESS, &sfWhite, sfFalse},
+    {{45, 45}, {1400, 50}, set_medium_size, MEDIUM_SIZE_TEXTURE, DEFAULT,
+        THICKNESS, &sfWhite, sfFalse},
+    {{45, 45}, {1350, 50}, set_big_size, BIG_SIZE_TEXTURE, DEFAULT,
+        THICKNESS, &sfWhite, sfFalse}
 };
 
 #endif /* !INIT_BUTTON_ARRAY_H */
