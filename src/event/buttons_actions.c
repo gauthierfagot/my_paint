@@ -5,11 +5,17 @@
 ** button_action
 */
 
+#include "define.h"
 #include "color.h"
 
-void default_action(void *, graphical_tool_t *tools)
+void bin_action(void *data, graphical_tool_t *)
 {
-    tools->color = color_tab[BLUE];
+    paint_t *paint = (paint_t *)data;
+    sfVector2u size_image = sfImage_getSize(paint->image);
+
+    sfImage_destroy(paint->image);
+    paint->image = sfImage_createFromColor(size_image.x, size_image.y,
+        sfTransparent);
     return;
 }
 

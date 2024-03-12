@@ -12,11 +12,12 @@
 
 void set_window_entities(sfRectangleShape *background)
 {
-    sfVector2f position = {0, 0};
-    sfVector2f size = {WIDTH, HEIGHT};
+    sfVector2f position = {(WIDTH - WIDTH_IMAGE) / 2.0,
+    (HEIGHT - HEIGHT_IMAGE) * (2.0 / 3.0)};
+    sfVector2f size = {WIDTH_IMAGE, HEIGHT_IMAGE};
 
     sfRectangleShape_setSize(background, size);
     sfRectangleShape_setPosition(background, position);
-    sfRectangleShape_setFillColor(background, color_tab[BACKGROUND_COLOR]);
+    sfRectangleShape_setFillColor(background, sfWhite);
     return;
 }

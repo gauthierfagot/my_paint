@@ -14,8 +14,6 @@
     #include "drop_menu.h"
     #include "menu.h"
 
-void drop_menu_action(void *, graphical_tool_t *);
-
 static const int INIT_DROP_MENU_SIZE = 3;
 
 static const init_buttons_t INIT_DROP_MENU[] = {

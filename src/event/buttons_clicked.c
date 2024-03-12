@@ -65,7 +65,7 @@ static sfBool are_buttons_clicked(sfEvent *event, paint_t *paint,
         }
     }
     for (size_t i = 0; paint->buttons[i] != NULL; i++) {
-        if (is_button_clicked(NULL, paint->buttons[i],
+        if (is_button_clicked(paint, paint->buttons[i],
             tools, &event->mouseButton)) {
             unset_outline(paint->buttons, paint->buttons[i]->menu);
             outline_button(paint->buttons[i]);

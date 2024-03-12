@@ -13,7 +13,8 @@ typedef enum e_tool {
     MOUSE = 0,
     PENCIL,
     BRUSH,
-    ERASER
+    ERASER,
+    DROPPER
 } e_tool;
 
 typedef enum e_shape {

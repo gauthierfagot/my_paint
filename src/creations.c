@@ -91,7 +91,7 @@ static button_t **create_buttons(paint_t *paint)
 sfBool create_paint(paint_t *paint)
 {
     paint->image = sfImage_createFromColor(WIDTH_IMAGE,
-    HEIGHT_IMAGE, sfWhite);
+    HEIGHT_IMAGE, sfTransparent);
     paint->textures = create_textures(paint);
     if (paint->textures == NULL)
         return sfFalse;

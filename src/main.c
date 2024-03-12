@@ -23,6 +23,8 @@ void central_loop(sfRenderWindow *window, paint_t *paint)
         if (analyze_events(window, &event, paint, &tools) == sfFalse)
             break;
         draw_entities(window, background, paint);
+        sfTexture_updateFromImage(paint->textures[DRAWING],
+            paint->image, 0, 0);
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, color_tab[BACKGROUND_COLOR]);
     }

@@ -86,7 +86,7 @@ void set_cyan(void *, graphical_tool_t *tools);
 
 // tools
 
-void default_action(void *, graphical_tool_t *);
+void bin_action(void *, graphical_tool_t *);
 void eraser_action(void *, graphical_tool_t *tools);
 void brush_action(void *, graphical_tool_t *tools);
 void pencil_action(void *, graphical_tool_t *tools);

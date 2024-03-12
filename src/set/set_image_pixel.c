@@ -24,7 +24,6 @@ void draw_square(paint_t *paint, sfVector2i mouse, graphical_tool_t tools)
             (mouse_y + i) - position.y, tools.color);
         }
     }
-    sfTexture_updateFromImage(paint->textures[DRAWING], paint->image, 0, 0);
 }
 
 static void set_pixel_circle(paint_t *paint, sfVector2i mouse,
@@ -50,7 +49,6 @@ void draw_circle(paint_t *paint, sfVector2i mouse, graphical_tool_t tools)
     for (int i = -radius + mouse.x; i <= radius + mouse.x; i++) {
         set_pixel_circle(paint, mouse, tools, i);
     }
-    sfTexture_updateFromImage(paint->textures[DRAWING], paint->image, 0, 0);
 }
 
 static void check_square(sfVector2i mouse,
@@ -104,7 +102,7 @@ void set_pixel(sfRenderWindow *window, paint_t *paint,
     if (check_collision(paint, mouse, &tools) == sfFalse)
         return;
     if (tools.tool == ERASER)
-        tools.color = sfWhite;
+        tools.color = sfTransparent;
     if (tools.shape == SQUARE)
         draw_square(paint, mouse, tools);
     else

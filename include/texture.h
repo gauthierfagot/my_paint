@@ -26,6 +26,7 @@ typedef enum e_texture {
     SMALL_SIZE_TEXTURE,
     MEDIUM_SIZE_TEXTURE,
     BIG_SIZE_TEXTURE,
+    BIN_TEXTURE,
     SIZE
 } e_texture;
 

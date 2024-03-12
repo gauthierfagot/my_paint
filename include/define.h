@@ -10,7 +10,7 @@
 
     #define WIDTH 1920
     #define HEIGHT 1080
-    #define FRAME 60
+    #define FRAME 120
 
     #define WIDTH_IMAGE (WIDTH * (5.0 / 6.0))
     #define HEIGHT_IMAGE (HEIGHT * (4.0 / 5.0))
