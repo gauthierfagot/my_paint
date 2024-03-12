@@ -23,6 +23,9 @@ typedef enum e_texture {
     HELP_TEXTURE,
     CIRCLE_TEXTURE,
     SQUARE_TEXTURE,
+    SMALL_SIZE_TEXTURE,
+    MEDIUM_SIZE_TEXTURE,
+    BIG_SIZE_TEXTURE,
     SIZE
 } e_texture;
 

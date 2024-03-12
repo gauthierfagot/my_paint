@@ -97,5 +97,9 @@ void pencil_action(void *, graphical_tool_t *tools);
 
 void set_circle(void *, graphical_tool_t *tools);
 void set_square(void *, graphical_tool_t *tools);
+void set_small_size(void *, graphical_tool_t *tools);
+void set_medium_size(void *, graphical_tool_t *tools);
+void set_big_size(void *, graphical_tool_t *tools);
+
 
 #endif /* !PAINT */
