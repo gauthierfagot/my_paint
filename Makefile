@@ -17,6 +17,10 @@ SRC     =	src/main.c					\
 			src/event/buttons_actions.c	\
 			src/event/buttons_clicked.c	\
 			src/event/set_image_pixel.c	\
+			src/event/resize_window.c	\
+			src/colors/set_other_colors.c	\
+			src/colors/set_primary_colors.c	\
+			src/colors/set_shades.c	\
 
 OBJ     =	$(SRC:.c=.o)
 
@@ -28,7 +32,8 @@ CFLAGS	= 	-Wall -Wextra
 
 CPPFLAGS	=	-I./include
 
-LDFLAGS	=	-lmy -lcsfml-system -lcsfml-window -lcsfml-graphics -lcsfml-audio
+LDFLAGS	=	-lmy -lcsfml-system -lcsfml-window -lcsfml-graphics -lcsfml-audio \
+-lm
 
 LDLIBS	=	-L./lib
 

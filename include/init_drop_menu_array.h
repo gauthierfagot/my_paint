@@ -12,6 +12,7 @@
     #include "button.h"
     #include "texture.h"
     #include "drop_menu.h"
+    #include "menu.h"
 
 void drop_menu_action(void *, graphical_tool_t *);
 
@@ -19,11 +20,11 @@ static const int INIT_DROP_MENU_SIZE = 3;
 
 static const init_buttons_t INIT_DROP_MENU[] = {
     {{45, 45}, {450, 50}, drop_menu_action, FILE_EDITOR_TEXTURE, DEFAULT,
-        FILE},
+        FILE, &sfWhite, sfTrue},
     {{45, 45}, {575, 50}, drop_menu_action, TOOL_MENU_TEXTURE, DEFAULT,
-        EDITION},
+        EDITION, &sfWhite, sfTrue},
     {{45, 45}, {700, 50}, drop_menu_action, HELP_TEXTURE, DEFAULT,
-        INFO},
+        INFO, &sfWhite, sfTrue},
 };
 
 #endif /* !INIT_DROP_MENU_ARRAY_H */

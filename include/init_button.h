@@ -20,6 +20,8 @@ typedef struct init_buttons_s {
     enum e_texture texture;
     enum e_state state;
     enum e_menu menu;
+    const sfColor *color;
+    sfBool drop_menu;
 } init_buttons_t;
 
 #endif /* !INIT_BUTTON_H */

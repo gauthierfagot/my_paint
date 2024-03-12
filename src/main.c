@@ -8,24 +8,25 @@
 #include "my_paint.h"
 #include "graphical_tool.h"
 #include "define.h"
+#include "color.h"
 
 void central_loop(sfRenderWindow *window, paint_t *paint)
 {
     sfEvent event;
     graphical_tool_t tools = create_tools();
-    sfSprite *background = sfSprite_create();
+    sfRectangleShape *background = sfRectangleShape_create();
 
     if (background == NULL)
         return;
-    set_window_entities(paint, background);
+    set_window_entities(background);
     while (sfRenderWindow_isOpen(window)) {
         if (analyze_events(window, &event, paint, &tools) == sfFalse)
             break;
         draw_entities(window, background, paint);
         sfRenderWindow_display(window);
-        sfRenderWindow_clear(window, sfBlack);
+        sfRenderWindow_clear(window, color_tab[GREY]);
     }
-    sfSprite_destroy(background);
+    sfRectangleShape_destroy(background);
 }
 
 int main(int argc, char **argv, char **env)

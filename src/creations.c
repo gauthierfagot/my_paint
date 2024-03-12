@@ -52,36 +52,36 @@ graphical_tool_t create_tools(void)
     tools.height = 20;
     tools.width = 20;
     tools.tool = MOUSE;
-    tools.shape = SQUARE;
+    tools.shape = CIRCLE;
     tools.color = sfBlack;
     return tools;
 }
 
-static int search_init_button_size(int menu)
+static int search_init_button_size(void)
 {
     int size = 0;
 
     for (int i = 0; i < INIT_BUTTONS_SIZE; i++) {
-        if (INIT_BUTTONS[i].menu == menu)
+        if (INIT_BUTTONS[i].drop_menu == sfFalse)
             size++;
     }
     return size;
 }
 
-button_t **create_buttons(paint_t *paint, int menu)
+static button_t **create_buttons(paint_t *paint)
 {
     int j = 0;
-    int size = search_init_button_size(menu);
+    int size = search_init_button_size();
     button_t **buttons = malloc(sizeof(button_t *) * (size + 1));
 
     if (buttons == NULL)
         return NULL;
     for (int i = 0; i < INIT_BUTTONS_SIZE; i++) {
-        if (INIT_BUTTONS[i].menu == menu) {
+        if (INIT_BUTTONS[i].drop_menu == sfFalse) {
             buttons[j] = init_button(paint, &INIT_BUTTONS[i]);
             j++;
         }
-        if (INIT_BUTTONS[i].menu == menu && buttons[j - 1] == NULL)
+        if (INIT_BUTTONS[i].drop_menu == sfFalse && buttons[j - 1] == NULL)
             return NULL;
     }
     buttons[j] = NULL;
@@ -99,7 +99,7 @@ sfBool create_paint(paint_t *paint)
     paint->menus = create_menus(paint);
     if (paint->menus == NULL)
         return sfFalse;
-    paint->buttons = create_buttons(paint, NONE);
+    paint->buttons = create_buttons(paint);
     if (paint->buttons == NULL)
         return sfFalse;
     return sfTrue;

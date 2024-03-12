@@ -18,11 +18,13 @@ static void is_button_hover(button_t *button, sfMouseMoveEvent *mouse_event)
     if (button->state == INVALID)
         return;
     if (sfFloatRect_contains(&rect, mouse_event->x, mouse_event->y)) {
-        sfRectangleShape_setFillColor(button->rect, sfCyan);
+        if (button->menu != COLORS)
+            sfRectangleShape_setFillColor(button->rect, sfCyan);
         button->state = HOVER;
         return;
     }
-    sfRectangleShape_setFillColor(button->rect, sfWhite);
+    if (button->menu != COLORS)
+        sfRectangleShape_setFillColor(button->rect, sfWhite);
     button->state = DEFAULT;
     return;
 }

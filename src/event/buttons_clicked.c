@@ -8,6 +8,7 @@
 #include "button_state.h"
 #include "my_paint.h"
 #include "define.h"
+#include "color.h"
 
 static sfBool is_button_clicked(void *data, button_t *button,
     graphical_tool_t *tools, sfMouseButtonEvent *mouse_event)
@@ -17,10 +18,14 @@ static sfBool is_button_clicked(void *data, button_t *button,
     if (button->state == INVALID)
         return sfFalse;
     if (sfFloatRect_contains(&rect, mouse_event->x, mouse_event->y)) {
+        if (button->menu == COLORS)
+            sfRectangleShape_setOutlineColor(button->rect, color_tab[CYAN]);
         button->function(data, tools);
         button->state = CLICKED;
         return sfTrue;
     }
+    if (button->menu == COLORS)
+        sfRectangleShape_setOutlineColor(button->rect, sfTransparent);
     button->state = DEFAULT;
     return sfFalse;
 }

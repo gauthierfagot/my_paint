@@ -20,6 +20,8 @@ sfBool analyze_events(sfRenderWindow *window, sfEvent *event, paint_t *paint,
         are_buttons_hover(event, paint);
         if (sfMouse_isButtonPressed(sfMouseLeft))
             handle_pressed_button(event, paint, tools, window);
+        if (event->type == sfEvtResized)
+            resize_window(window);
     }
     return sfTrue;
 }

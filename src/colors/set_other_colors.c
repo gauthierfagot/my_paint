@@ -31,4 +31,3 @@ void set_beige(void *, graphical_tool_t *tools)
 {
     tools->color = color_tab[BEIGE];
 }
-

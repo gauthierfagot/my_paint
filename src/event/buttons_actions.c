@@ -13,9 +13,21 @@ void action_test(void *, graphical_tool_t *tools)
     return;
 }
 
-void set_blue(void *, graphical_tool_t *tools)
+void eraser_action(void *, graphical_tool_t *tools)
 {
-    tools->color = color_tab[BLUE];
+    tools->tool = ERASER;
+    return;
+}
+
+void brush_action(void *, graphical_tool_t *tools)
+{
+    tools->tool = BRUSH;
+    return;
+}
+
+void pencil_action(void *, graphical_tool_t *tools)
+{
+    tools->tool = PENCIL;
     return;
 }
 

@@ -27,24 +27,72 @@ void draw_square(paint_t *paint, sfVector2i mouse, graphical_tool_t tools)
     sfTexture_updateFromImage(paint->textures[DRAWING], paint->image, 0, 0);
 }
 
-sfBool check_collision(paint_t *paint, sfVector2i mouse,
+static set_pixel_circle(paint_t *paint, sfVector2i mouse,
+    graphical_tool_t tools, int i)
+{
+    int radius = tools.width / 2;
+    sfVector2f position = sfSprite_getPosition(paint->drawing);
+
+    for (int j = -radius + mouse.y; j <= radius + mouse.y; j++) {
+        if ((i - mouse.x) * (i - mouse.x) + (j - mouse.y) *
+        (j - mouse.y) < radius * radius) {
+            sfImage_setPixel(paint->image, i - position.x,
+            j - position.y, tools.color);
+        }
+    }
+}
+
+void draw_circle(paint_t *paint, sfVector2i mouse, graphical_tool_t tools)
+{
+    int radius = tools.width / 2;
+    sfVector2f position = sfSprite_getPosition(paint->drawing);
+
+    for (int i = -radius + mouse.x; i <= radius + mouse.x; i++) {
+        set_pixel_circle(paint, mouse, tools, i);
+    }
+    sfTexture_updateFromImage(paint->textures[DRAWING], paint->image, 0, 0);
+}
+
+static void check_square(sfVector2i mouse,
+    graphical_tool_t *tools, sfFloatRect *rect)
+{
+    if (mouse.x <= rect->left + (tools->width / 2))
+        tools->width = (mouse.x - rect->left) * 2;
+    if (mouse.x >= rect->left + rect->width - (tools->width / 2))
+        tools->width = (rect->left + rect->width - mouse.x) * 2;
+    if (mouse.y <= rect->top + (tools->height / 2))
+        tools->height = (mouse.y - rect->top) * 2;
+    if (mouse.y >= rect->top + rect->height - (tools->height / 2))
+        tools->height = (rect->top + rect->height - mouse.y) * 2;
+}
+
+static void check_circle(sfVector2i mouse,
+    graphical_tool_t *tools, sfFloatRect *rect)
+{
+    if (mouse.x <= rect->left + (tools->width / 2))
+        tools->width = (mouse.x - rect->left) * 2;
+    if (mouse.x >= rect->left + rect->width - (tools->width / 2))
+        tools->width = (rect->left + rect->width - mouse.x) * 2;
+    if (mouse.y <= rect->top + (tools->width / 2))
+        tools->width = (mouse.y - rect->top) * 2;
+    if (mouse.y >= rect->top + rect->height - (tools->width / 2))
+        tools->width = (rect->top + rect->height - mouse.y) * 2;
+}
+
+static sfBool check_collision(paint_t *paint, sfVector2i mouse,
     graphical_tool_t *tools)
 {
     sfVector2u size_image = sfImage_getSize(paint->image);
     sfVector2f position = {(WIDTH - size_image.x) / 2.0,
     (HEIGHT - size_image.y) * (2.0 / 3.0)};
+    sfFloatRect rect = {position.x, position.y, size_image.x, size_image.y};
 
-    if (mouse.x <= position.x || mouse.x >= position.x + size_image.x ||
-    mouse.y <= position.y || mouse.y >= position.y + size_image.y)
+    if (!sfFloatRect_contains(&rect, mouse.x, mouse.y))
         return sfFalse;
-    if (mouse.x <= position.x + (tools->width / 2))
-        tools->width = (mouse.x - position.x) * 2;
-    if (mouse.x >= position.x + size_image.x - (tools->width / 2))
-        tools->width = (position.x + size_image.x - mouse.x) * 2;
-    if (mouse.y <= position.y + (tools->height / 2))
-        tools->height = (mouse.y - position.y) * 2;
-    if (mouse.y >= position.y + size_image.y - (tools->height / 2))
-        tools->height = (position.y + size_image.y - mouse.y) * 2;
+    if (tools->shape == SQUARE)
+        check_square(mouse, tools, &rect);
+    else
+        check_circle(mouse, tools, &rect);
     return sfTrue;
 }
 
@@ -58,8 +106,8 @@ void set_pixel(sfRenderWindow *window, paint_t *paint,
     if (tools.tool == ERASER)
         tools.color = sfWhite;
     if (tools.shape == SQUARE)
-        return draw_square(paint, mouse, tools);
-    else if (tools.shape == CIRCLE)
-        return;
+        draw_square(paint, mouse, tools);
+    else
+        draw_circle(paint, mouse, tools);
     return;
 }

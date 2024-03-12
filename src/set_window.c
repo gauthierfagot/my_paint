@@ -6,11 +6,17 @@
 */
 
 #include "my_paint.h"
+#include "define.h"
+#include "color.h"
 #include "texture.h"
 
-void set_window_entities(paint_t *paint, sfSprite *background)
+void set_window_entities(sfRectangleShape *background)
 {
-    sfSprite_setTexture(background, paint->textures[BACKGROUND_TEXTURE],
-        sfTrue);
+    sfVector2f position = {0, 0};
+    sfVector2f size = {WIDTH, HEIGHT};
+
+    sfRectangleShape_setSize(background, size);
+    sfRectangleShape_setPosition(background, position);
+    sfRectangleShape_setFillColor(background, color_tab[GREY]);
     return;
 }

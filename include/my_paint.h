@@ -29,27 +29,33 @@ sfBool check_env(char **env);
 
 sfBool create_paint(paint_t *paint);
 graphical_tool_t create_tools(void);
-button_t **create_buttons(paint_t *paint, int menu);
-void set_window_entities(paint_t *paint, sfSprite *background);
+void set_window_entities(sfRectangleShape *background);
 drop_menu_t *init_drop_menu(paint_t *paint, int i);
 button_t *init_button(paint_t *paint, const init_buttons_t *);
 sfSprite *init_drawing(paint_t *paint);
 
 // print
 
-void draw_entities(sfRenderWindow *, sfSprite *, paint_t *);
+void draw_entities(sfRenderWindow *, sfRectangleShape *, paint_t *);
 void draw_pixels(sfRenderWindow *, sfSprite *);
 
 // events
 
+void resize_window(sfRenderWindow *);
 void set_pixel(sfRenderWindow *, paint_t *, graphical_tool_t);
 void are_buttons_hover(sfEvent *event, paint_t *paint);
 void drop_menu_action(void *, graphical_tool_t *);
-void action_test(void *, graphical_tool_t *);
 sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
     graphical_tool_t *);
 void handle_pressed_button(sfEvent *, paint_t *, graphical_tool_t *,
-sfRenderWindow *);
+    sfRenderWindow *);
+
+// button action
+
+void action_test(void *, graphical_tool_t *);
+void eraser_action(void *, graphical_tool_t *tools);
+void brush_action(void *, graphical_tool_t *tools);
+void pencil_action(void *, graphical_tool_t *tools);
 
 // destroy and free
 
