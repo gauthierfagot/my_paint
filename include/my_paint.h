@@ -84,19 +84,27 @@ void set_beige(void *, graphical_tool_t *tools);
 void set_pink(void *, graphical_tool_t *tools);
 void set_cyan(void *, graphical_tool_t *tools);
 
-// tools
+// blade colors
 
-void bin_action(void *, graphical_tool_t *);
-void eraser_action(void *, graphical_tool_t *tools);
-void brush_action(void *, graphical_tool_t *tools);
-void pencil_action(void *, graphical_tool_t *tools);
+void set_blade_purple(void *, graphical_tool_t *tools);
+void set_blade_yellow(void *, graphical_tool_t *tools);
+void set_blade_green(void *, graphical_tool_t *tools);
 
-// set //
+// set_tools
+
+void set_bin(void *, graphical_tool_t *);
+void set_eraser(void *, graphical_tool_t *tools);
+void set_brush(void *, graphical_tool_t *tools);
+void set_pencil(void *, graphical_tool_t *tools);
+void set_dropper(void *, graphical_tool_t *tools);
 
 // set_shapes
 
 void set_circle(void *, graphical_tool_t *tools);
 void set_square(void *, graphical_tool_t *tools);
+
+// set_size
+
 void set_small_size(void *, graphical_tool_t *tools);
 void set_medium_size(void *, graphical_tool_t *tools);
 void set_big_size(void *, graphical_tool_t *tools);

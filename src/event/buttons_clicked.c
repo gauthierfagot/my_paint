@@ -78,8 +78,15 @@ static sfBool are_buttons_clicked(sfEvent *event, paint_t *paint,
 void handle_pressed_button(sfEvent *event, paint_t *paint,
     graphical_tool_t *tools, sfRenderWindow *window)
 {
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
+    sfVector2f position = sfSprite_getPosition(paint->drawing);
+
     if (are_buttons_clicked(event, paint, tools))
         return;
-    set_pixel(window, paint, *tools);
+    if (tools->tool == DROPPER) {
+        tools->color = sfImage_getPixel(paint->image, mouse.x - position.x,
+        mouse.y - position.y);
+    } else
+        set_pixel(window, paint, *tools);
     return;
 }

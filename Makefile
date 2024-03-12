@@ -16,13 +16,16 @@ SRC     =	src/main.c						\
 			src/set/set_shapes.c			\
 			src/set/set_image_pixel.c		\
 			src/set/set_thickness.c	\
+			src/set/set_bin.c	\
+			src/set/set_tools.c	\
+			src/set/set_drop_menu.c	\
 			src/event/resize_window.c		\
 			src/event/buttons_hover.c		\
-			src/event/buttons_actions.c		\
 			src/event/buttons_clicked.c		\
 			src/colors/set_shades.c			\
 			src/colors/set_other_colors.c	\
 			src/colors/set_primary_colors.c	\
+			src/colors/set_blade_colors.c	\
 
 OBJ     =	$(SRC:.c=.o)
 
