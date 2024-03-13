@@ -12,7 +12,7 @@
 
 void outline_button(button_t *button)
 {
-    if (button->menu != DUMP && button->menu != FILE && button->menu != INFO)
+    if (button->menu != DUMP && button->menu != FILES && button->menu != INFO)
         sfRectangleShape_setOutlineColor(button->rect, sfMagenta);
     return;
 }
@@ -95,6 +95,6 @@ void handle_pressed_button(sfEvent *event, paint_t *paint,
         tools->color = sfImage_getPixel(paint->image, mouse.x - position.x,
         mouse.y - position.y);
     } else
-        set_pixel(window, paint, *tools);
+        set_pixel(window, paint, tools);
     return;
 }

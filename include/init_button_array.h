@@ -19,11 +19,11 @@ static const int INIT_BUTTONS_SIZE = 31;
 
 static const init_buttons_t INIT_BUTTONS[] = {
     {{45, 45}, {450, 100}, set_black, NEW_FILE_TEXTURE, DEFAULT,
-        FILE, &sfWhite, sfTrue},
+        FILES, &sfWhite, sfTrue},
     {{45, 45}, {450, 150}, set_black, OPEN_FILE_TEXTURE, DEFAULT,
-        FILE, &sfWhite, sfTrue},
-    {{45, 45}, {450, 200}, set_black, SAVE_FILE_TEXTURE, DEFAULT,
-        FILE, &sfWhite, sfTrue},
+        FILES, &sfWhite, sfTrue},
+    {{45, 45}, {450, 200}, save_drawing, SAVE_FILE_TEXTURE, DEFAULT,
+        FILES, &sfWhite, sfTrue},
     {{45, 45}, {575, 100}, set_brush, BRUSH_TEXTURE, CLICKED,
         EDITION, &sfWhite, sfTrue},
     {{45, 45}, {575, 150}, set_dropper, DROPPER_TEXTURE, DEFAULT,

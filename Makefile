@@ -26,6 +26,7 @@ SRC     =	src/main.c						\
 			src/colors/set_other_colors.c	\
 			src/colors/set_primary_colors.c	\
 			src/colors/set_blade_colors.c	\
+			src/save_file.c	\
 
 OBJ     =	$(SRC:.c=.o)
 
