@@ -84,10 +84,13 @@ void handle_pressed_button(sfEvent *event, paint_t *paint,
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
     sfVector2f position = sfSprite_getPosition(paint->drawing);
+    sfVector2u size_image = sfImage_getSize(paint->image);
+    sfFloatRect rect = {position.x, position.y, size_image.x, size_image.y};
 
     if (are_buttons_clicked(event, paint, tools))
         return;
-    if (tools->tool == DROPPER) {
+    if (tools->tool == DROPPER &&
+    sfFloatRect_contains(&rect, mouse.x, mouse.y)) {
         tools->color = sfImage_getPixel(paint->image, mouse.x - position.x,
         mouse.y - position.y);
     } else
