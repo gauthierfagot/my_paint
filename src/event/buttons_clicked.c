@@ -12,7 +12,7 @@
 
 void outline_button(button_t *button)
 {
-    if (button->menu == DUMP)
+    if (button->menu != DUMP)
         sfRectangleShape_setOutlineColor(button->rect, sfMagenta);
     return;
 }
