@@ -9,23 +9,24 @@ SRC     =	src/main.c						\
 			src/check_env.c					\
 			src/creations.c					\
 			src/set_window.c				\
+			src/flip_image.c				\
 			src/event/event.c				\
 			src/draw_entities.c				\
 			src/initializations.c			\
 			src/free_and_destroy.c			\
+			src/set/set_bin.c				\
+			src/set/set_tools.c				\
 			src/set/set_shapes.c			\
+			src/set/set_thickness.c			\
+			src/set/set_drop_menu.c			\
 			src/set/set_image_pixel.c		\
-			src/set/set_thickness.c	\
-			src/set/set_bin.c	\
-			src/set/set_tools.c	\
-			src/set/set_drop_menu.c	\
 			src/event/resize_window.c		\
 			src/event/buttons_hover.c		\
 			src/event/buttons_clicked.c		\
 			src/colors/set_shades.c			\
 			src/colors/set_other_colors.c	\
-			src/colors/set_primary_colors.c	\
 			src/colors/set_blade_colors.c	\
+			src/colors/set_primary_colors.c	\
 
 OBJ     =	$(SRC:.c=.o)
 

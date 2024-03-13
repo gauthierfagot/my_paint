@@ -88,6 +88,8 @@ static button_t **create_drop_buttons(paint_t *paint, int menu)
         }
         if (INIT_BUTTONS[i].menu == menu && buttons[j - 1] == NULL)
             return NULL;
+        if (INIT_BUTTONS[i].texture == SMALL_SIZE_TEXTURE)
+            outline_button(buttons[j - 1]);
     }
     buttons[j] = NULL;
     return buttons;

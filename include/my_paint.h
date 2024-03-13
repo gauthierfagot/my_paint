@@ -49,7 +49,7 @@ sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
     graphical_tool_t *);
 void handle_pressed_button(sfEvent *, paint_t *, graphical_tool_t *,
     sfRenderWindow *);
-
+void outline_button(button_t *button);
 
 // destroy and free
 

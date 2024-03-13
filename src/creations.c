@@ -83,6 +83,10 @@ static button_t **create_buttons(paint_t *paint)
         }
         if (INIT_BUTTONS[i].drop_menu == sfFalse && buttons[j - 1] == NULL)
             return NULL;
+        if ((INIT_BUTTONS[i].color == &color_tab[BLACK] && INIT_BUTTONS[i].menu
+        == COLORS) || INIT_BUTTONS[i].texture == SMALL_SIZE_TEXTURE ||
+        INIT_BUTTONS[i].texture == CIRCLE_TEXTURE)
+            outline_button(buttons[j - 1]);
     }
     buttons[j] = NULL;
     return buttons;
