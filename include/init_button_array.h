@@ -24,7 +24,7 @@ static const init_buttons_t INIT_BUTTONS[] = {
         FILE, &sfWhite, sfTrue},
     {{45, 45}, {450, 200}, set_black, SAVE_FILE_TEXTURE, DEFAULT,
         FILE, &sfWhite, sfTrue},
-    {{45, 45}, {575, 100}, set_brush, BRUSH_TEXTURE, DEFAULT,
+    {{45, 45}, {575, 100}, set_brush, BRUSH_TEXTURE, CLICKED,
         EDITION, &sfWhite, sfTrue},
     {{45, 45}, {575, 150}, set_dropper, DROPPER_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
@@ -36,7 +36,7 @@ static const init_buttons_t INIT_BUTTONS[] = {
         INFO, &sfWhite, sfTrue},
     {{45, 45}, {700, 150}, set_black, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
-    {{25, 25}, {900, 45}, set_black, HELP_TEXTURE, DEFAULT,
+    {{25, 25}, {900, 45}, set_black, HELP_TEXTURE, CLICKED,
         COLORS, &color_tab[BLACK], sfFalse},
     {{25, 25}, {930, 75}, set_grey, HELP_TEXTURE, DEFAULT,
         COLORS, &color_tab[GREY], sfFalse},
@@ -72,14 +72,14 @@ static const init_buttons_t INIT_BUTTONS[] = {
         SHAPES, &sfWhite, sfFalse},
     {{45, 45}, {1250, 50}, set_square, SQUARE_TEXTURE, DEFAULT,
         SHAPES, &sfWhite, sfFalse},
-    {{45, 45}, {1450, 50}, set_small_size, SMALL_SIZE_TEXTURE, DEFAULT,
+    {{45, 45}, {1450, 50}, set_small_size, SMALL_SIZE_TEXTURE, CLICKED,
         THICKNESS, &sfWhite, sfFalse},
     {{45, 45}, {1400, 50}, set_medium_size, MEDIUM_SIZE_TEXTURE, DEFAULT,
         THICKNESS, &sfWhite, sfFalse},
     {{45, 45}, {1350, 50}, set_big_size, BIG_SIZE_TEXTURE, DEFAULT,
         THICKNESS, &sfWhite, sfFalse},
     {{45, 45}, {1550, 50}, set_bin, BIN_TEXTURE, DEFAULT,
-        NONE, &sfWhite, sfFalse}
+        DUMP, &sfWhite, sfFalse}
 };
 
 #endif /* !INIT_BUTTON_ARRAY_H */

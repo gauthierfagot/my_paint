@@ -15,6 +15,7 @@ typedef enum e_menu {
     INFO,
     COLORS,
     SHAPES,
+    DUMP,
     THICKNESS
 } e_menu;
 
