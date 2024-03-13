@@ -17,11 +17,11 @@
 static const int INIT_DROP_MENU_SIZE = 3;
 
 static const init_buttons_t INIT_DROP_MENU[] = {
-    {{45, 45}, {450, 50}, drop_menu_action, FILE_EDITOR_TEXTURE, DEFAULT,
+    {{45, 45}, {350, 50}, drop_menu_action, FILE_EDITOR_TEXTURE, DEFAULT,
         FILES, &sfWhite, sfTrue},
-    {{45, 45}, {575, 50}, drop_menu_action, TOOL_MENU_TEXTURE, DEFAULT,
+    {{45, 45}, {475, 50}, drop_menu_action, TOOL_MENU_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
-    {{45, 45}, {700, 50}, drop_menu_action, HELP_TEXTURE, DEFAULT,
+    {{45, 45}, {600, 50}, drop_menu_action, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
 };
 

@@ -109,5 +109,10 @@ void set_small_size(void *, graphical_tool_t *tools);
 void set_medium_size(void *, graphical_tool_t *tools);
 void set_big_size(void *, graphical_tool_t *tools);
 
+// flip
+
+void flip_horizontally(void *data, graphical_tool_t *);
+void flip_vertically(void *data, graphical_tool_t *);
+
 
 #endif /* !PAINT */

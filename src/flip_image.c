@@ -7,24 +7,22 @@
 
 #include "my_paint.h"
 
-void flip_horizontally(void *img, graphical_tool_t *)
+void flip_horizontally(void *data, graphical_tool_t *)
 {
-    sfImage *image = NULL;
+    paint_t *paint = (paint_t *)data;
 
-    if (img == NULL)
+    if (paint->image == NULL)
         return;
-    image = (sfImage *)img;
-    sfImage_flipHorizontally(image);
+    sfImage_flipHorizontally(paint->image);
     return;
 }
 
-void flip_vertically(void *img, graphical_tool_t *)
+void flip_vertically(void *data, graphical_tool_t *)
 {
-    sfImage *image = NULL;
+    paint_t *paint = (paint_t *)data;
 
-    if (img == NULL)
+    if (paint->image == NULL)
         return;
-    image = (sfImage *)img;
-    sfImage_flipVertically(image);
+    sfImage_flipVertically(paint->image);
     return;
 }

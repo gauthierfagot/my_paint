@@ -15,26 +15,26 @@
     #include "menu.h"
     #include "color.h"
 
-static const int INIT_BUTTONS_SIZE = 31;
+static const int INIT_BUTTONS_SIZE = 33;
 
 static const init_buttons_t INIT_BUTTONS[] = {
-    {{45, 45}, {450, 100}, set_black, NEW_FILE_TEXTURE, DEFAULT,
+    {{45, 45}, {350, 100}, set_black, NEW_FILE_TEXTURE, DEFAULT,
         FILES, &sfWhite, sfTrue},
-    {{45, 45}, {450, 150}, set_black, OPEN_FILE_TEXTURE, DEFAULT,
+    {{45, 45}, {350, 150}, set_black, OPEN_FILE_TEXTURE, DEFAULT,
         FILES, &sfWhite, sfTrue},
-    {{45, 45}, {450, 200}, save_drawing, SAVE_FILE_TEXTURE, DEFAULT,
+    {{45, 45}, {350, 200}, save_drawing, SAVE_FILE_TEXTURE, DEFAULT,
         FILES, &sfWhite, sfTrue},
-    {{45, 45}, {575, 100}, set_brush, BRUSH_TEXTURE, CLICKED,
+    {{45, 45}, {475, 100}, set_brush, BRUSH_TEXTURE, CLICKED,
         EDITION, &sfWhite, sfTrue},
-    {{45, 45}, {575, 150}, set_dropper, DROPPER_TEXTURE, DEFAULT,
+    {{45, 45}, {475, 150}, set_dropper, DROPPER_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
-    {{45, 45}, {575, 200}, set_eraser, ERASER_TEXTURE, DEFAULT,
+    {{45, 45}, {475, 200}, set_eraser, ERASER_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
-    {{45, 45}, {575, 250}, set_pencil, PENCIL_TEXTURE, DEFAULT,
+    {{45, 45}, {475, 250}, set_pencil, PENCIL_TEXTURE, DEFAULT,
         EDITION, &sfWhite, sfTrue},
-    {{45, 45}, {700, 100}, set_black, HELP_TEXTURE, DEFAULT,
+    {{45, 45}, {600, 100}, set_black, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
-    {{45, 45}, {700, 150}, set_black, HELP_TEXTURE, DEFAULT,
+    {{45, 45}, {600, 150}, set_black, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
     {{25, 25}, {900, 45}, set_black, HELP_TEXTURE, CLICKED,
         COLORS, &color_tab[BLACK], sfFalse},
@@ -79,7 +79,11 @@ static const init_buttons_t INIT_BUTTONS[] = {
     {{45, 45}, {1350, 50}, set_big_size, BIG_SIZE_TEXTURE, DEFAULT,
         THICKNESS, &sfWhite, sfFalse},
     {{45, 45}, {1550, 50}, set_bin, BIN_TEXTURE, DEFAULT,
-        DUMP, &sfWhite, sfFalse}
+        DUMP, &sfWhite, sfFalse},
+    {{45, 45}, {725, 50}, flip_horizontally, FLIP_HORIZONTAL_TEXTURE, DEFAULT,
+        FLIP, &sfWhite, sfFalse},
+    {{45, 45}, {775, 50}, flip_vertically, FLIP_VERTICAL_TEXTURE, DEFAULT,
+        FLIP, &sfWhite, sfFalse}
 };
 
 #endif /* !INIT_BUTTON_ARRAY_H */
