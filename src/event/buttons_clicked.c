@@ -12,7 +12,7 @@
 
 void outline_button(button_t *button)
 {
-    if (button->menu != DUMP)
+    if (button->menu != DUMP && button->menu != FILE && button->menu != INFO)
         sfRectangleShape_setOutlineColor(button->rect, sfMagenta);
     return;
 }
@@ -48,7 +48,8 @@ static sfBool check_menu_buttons_clicked(sfEvent *event, paint_t *paint,
     paint->menus[i]->hide == sfFalse; j++) {
         if (is_button_clicked(paint, paint->menus[i]->buttons[j],
         tools, &event->mouseButton)) {
-            unset_outline(paint->menus[i]->buttons, paint->menus[i]->buttons[j]->menu);
+            unset_outline(paint->menus[i]->buttons,
+            paint->menus[i]->buttons[j]->menu);
             outline_button(paint->menus[i]->buttons[j]);
             return sfTrue;
         }
