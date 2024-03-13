@@ -10,7 +10,7 @@
 
 typedef enum e_menu {
     NONE = -1,
-    FILE,
+    FILES,
     EDITION,
     INFO,
     COLORS,

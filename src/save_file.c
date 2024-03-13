@@ -7,7 +7,7 @@
 
 #include "my_paint.h"
 
-void save_drawing(const sfImage *image, const char *name)
+void save_drawing(void *, graphical_tool_t *)
 {
-    sfImage_saveToFile(image, name);
+    return;
 }

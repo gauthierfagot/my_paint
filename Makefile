@@ -8,6 +8,7 @@
 SRC     =	src/main.c						\
 			src/check_env.c					\
 			src/creations.c					\
+			src/save_file.c					\
 			src/set_window.c				\
 			src/flip_image.c				\
 			src/event/event.c				\

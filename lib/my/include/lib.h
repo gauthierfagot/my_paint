@@ -24,5 +24,10 @@ int my_strcmp(char const *s1, char const *s2);
 // copy
 
 char *my_strcpy(char *dest, char const *src);
+char *my_strncpy(char *dest, char const *src, int n);
+
+// Malloc
+
+char *my_strndup(char const *src, int n);
 
 #endif /* !LIB_ */

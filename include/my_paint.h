@@ -42,7 +42,7 @@ void draw_pixels(sfRenderWindow *, sfSprite *);
 // events
 
 void resize_window(sfRenderWindow *);
-void set_pixel(sfRenderWindow *, paint_t *, graphical_tool_t);
+void set_pixel(sfRenderWindow *, paint_t *, graphical_tool_t *);
 void are_buttons_hover(sfEvent *event, paint_t *paint);
 void drop_menu_action(void *, graphical_tool_t *);
 sfBool analyze_events(sfRenderWindow *, sfEvent *, paint_t *,
@@ -58,7 +58,7 @@ void destroy_variable(sfRenderWindow *window, paint_t *paint);
 
 // save
 
-void save_drawing(const sfImage *image, const char *name);
+void save_drawing(void *, graphical_tool_t *);
 
 // colors //
 

@@ -11,6 +11,8 @@ SRC     =	my_strlen.c	\
 			my_strcpy.c	\
 			my_strdup.c	\
 			my_putstr.c	\
+			my_strncpy.c	\
+			my_strndup.c	\
 
 OBJ     =	$(SRC:.c=.o)
 
