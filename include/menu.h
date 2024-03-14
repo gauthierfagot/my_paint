@@ -16,7 +16,8 @@ typedef enum e_menu {
     COLORS,
     SHAPES,
     DUMP,
-    THICKNESS
+    THICKNESS,
+    FLIP
 } e_menu;
 
 #endif /* !MENU_H */
