@@ -15,7 +15,7 @@
 static const int INIT_BUTTONS_SIZE = 33;
 
 static const init_buttons_t INIT_BUTTONS[] = {
-    {{45, 45}, {350, 100}, set_black, NEW_FILE_TEXTURE, DEFAULT,
+    {{45, 45}, {350, 100}, set_bin, NEW_FILE_TEXTURE, DEFAULT,
         FILES, &sfWhite, sfTrue},
     {{45, 45}, {350, 150}, set_black, OPEN_FILE_TEXTURE, DEFAULT,
         FILES, &sfWhite, sfTrue},
@@ -31,7 +31,7 @@ static const init_buttons_t INIT_BUTTONS[] = {
         EDITION, &sfWhite, sfTrue},
     {{45, 45}, {600, 100}, set_black, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
-    {{45, 45}, {700, 150}, help, HELP_TEXTURE, DEFAULT,
+    {{45, 45}, {600, 150}, help, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
     {{25, 25}, {900, 45}, set_black, HELP_TEXTURE, CLICKED,
         COLORS, &color_tab[BLACK], sfFalse},

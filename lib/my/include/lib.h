@@ -29,5 +29,6 @@ char *my_strncpy(char *dest, char const *src, int n);
 // Malloc
 
 char *my_strndup(char const *src, int n);
+char *my_strcat(char *dest, char const *src);
 
 #endif /* !LIB_ */
