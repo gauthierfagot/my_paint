@@ -34,6 +34,10 @@ drop_menu_t *init_drop_menu(paint_t *paint, int i);
 button_t *init_button(paint_t *paint, const init_buttons_t *);
 sfSprite *init_drawing(paint_t *paint);
 
+// help
+
+void help(void *, graphical_tool_t *);
+
 // print
 
 void draw_entities(sfRenderWindow *, sfRectangleShape *, paint_t *);

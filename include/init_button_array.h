@@ -8,11 +8,8 @@
 #ifndef INIT_BUTTON_ARRAY_H
     #define INIT_BUTTON_ARRAY_H
     #include <SFML/Graphics.h>
-    #include "button_state.h"
     #include "button.h"
     #include "texture.h"
-    #include "drop_menu.h"
-    #include "menu.h"
     #include "color.h"
 
 static const int INIT_BUTTONS_SIZE = 31;
@@ -34,7 +31,7 @@ static const init_buttons_t INIT_BUTTONS[] = {
         EDITION, &sfWhite, sfTrue},
     {{45, 45}, {700, 100}, set_black, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
-    {{45, 45}, {700, 150}, set_black, HELP_TEXTURE, DEFAULT,
+    {{45, 45}, {700, 150}, help, HELP_TEXTURE, DEFAULT,
         INFO, &sfWhite, sfTrue},
     {{25, 25}, {900, 45}, set_black, HELP_TEXTURE, CLICKED,
         COLORS, &color_tab[BLACK], sfFalse},

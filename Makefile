@@ -6,6 +6,7 @@
 ##
 
 SRC     =	src/main.c						\
+			src/help.c						\
 			src/check_env.c					\
 			src/creations.c					\
 			src/save_file.c					\
