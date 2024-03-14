@@ -10,15 +10,13 @@
 char *my_strncpy(char *dest, char const *src, int n)
 {
     int i = 0;
-    int len_dest = my_strlen(dest) - 1;
+    int len_src = my_strlen(src);
 
-    while (n != 0) {
+    while (n > 0 && len_src > i) {
         dest[i] = src[i];
         i ++;
         n --;
     }
-    if (n > len_dest) {
-        dest[i] = '\0';
-    }
+    dest[i] = '\0';
     return dest;
 }

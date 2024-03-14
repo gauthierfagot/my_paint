@@ -19,7 +19,7 @@ void analyse_close(sfRenderWindow *window)
 
 sfText *help_text(void)
 {
-    sfFont *font = sfFont_createFromFile("image/Edosz.ttf");
+    sfFont *font = sfFont_createFromFile("font/Edosz.ttf");
     sfText *instru = sfText_create();
     char *help = "You can choose your tool in the second drop menu,\nand so "
     "can you with color, shape and thickness on the right side of drop menus."
