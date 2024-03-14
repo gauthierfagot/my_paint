@@ -5,9 +5,9 @@
 ** help
 */
 
+#include <unistd.h>
 #include "my_paint.h"
 #include "lib.h"
-#include <unistd.h>
 
 char *help_text(void)
 {
