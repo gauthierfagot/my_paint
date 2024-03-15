@@ -68,12 +68,14 @@ void save_drawing(void *data, graphical_tool_t *)
 
     my_putstr("Enter file name: ");
     input_size = getline(&input, &i, stdin);
-    if (input_size == -1) {
+    if (input_size == -1 ||
+    create_file_name(paint, input, new_image) == sfFalse) {
         my_putstr("\nFailed to save image\n");
+        free(input);
+        sfImage_destroy(new_image);
         return;
     }
-    if (create_file_name(paint, input, new_image) == sfFalse)
-        my_puterr("Failed to save image\n");
+    my_putstr("Successfully saved\n");
     free(input);
     sfImage_destroy(new_image);
 }

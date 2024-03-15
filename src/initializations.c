@@ -19,6 +19,8 @@ sfSprite *init_drawing(paint_t *paint)
     sfVector2f position = {(WIDTH - size_image.x) / 2.0,
     (HEIGHT - size_image.y) * (2.0 / 3.0)};
 
+    if (drawing == NULL)
+        return NULL;
     sfSprite_setTexture(drawing, paint->textures[DRAWING], sfFalse);
     sfSprite_setPosition(drawing, position);
     return drawing;
