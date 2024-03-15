@@ -9,8 +9,8 @@
 
 void set_tiny_size(void *, graphical_tool_t *tools)
 {
-    tools->height = 5;
-    tools->width = 5;
+    tools->height = 10;
+    tools->width = 10;
 }
 
 void set_small_size(void *, graphical_tool_t *tools)
