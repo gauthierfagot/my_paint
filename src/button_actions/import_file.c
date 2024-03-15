@@ -28,5 +28,6 @@ void import_image(void *arg, graphical_tool_t *)
             return;
         sfImage_copyImage(paint->image, image, 0, 0, (sfIntRect){0}, sfTrue);
     }
+    write(1, "Successfully loaded\n", 20);
     return;
 }

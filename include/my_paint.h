@@ -30,6 +30,10 @@ sfBool check_env(char **env);
 
 void central_loop(sfRenderWindow *window, paint_t *paint);
 
+// fill
+
+void fill_area(sfRenderWindow *window, paint_t *paint, graphical_tool_t *tool);
+
 // clear
 
 char *clear_str(const char *str);
@@ -103,6 +107,7 @@ void set_eraser(void *, graphical_tool_t *tools);
 void set_brush(void *, graphical_tool_t *tools);
 void set_pencil(void *, graphical_tool_t *tools);
 void set_dropper(void *, graphical_tool_t *tools);
+void set_bucket(void *, graphical_tool_t *tool);
 
 // set_shapes
 
@@ -122,6 +127,20 @@ void set_big_size(void *, graphical_tool_t *tools);
 
 void flip_horizontally(void *data, graphical_tool_t *);
 void flip_vertically(void *data, graphical_tool_t *);
+
+// filling
+
+void fill_bot_side(sfColor *initial_area_color, paint_t *paint,
+    sfVector2i pos, sfColor *new_color);
+void fill_top_side(sfColor *initial_area_color, paint_t *paint,
+    sfVector2i pos, sfColor *new_color);
+void fill_right_side(sfColor *initial_area_color, paint_t *paint,
+    sfVector2i pos, sfColor *new_color);
+void fill_left_side(sfColor *initial_area_color, paint_t *paint,
+    sfVector2i pos, sfColor *new_color);
+void fill_cross(sfColor *initial_area_color, paint_t *paint,
+    sfColor *new_color, sfVector2i *pos);
+sfBool is_same_color(sfColor *color, paint_t *paint, sfVector2i pos);
 
 // import
 

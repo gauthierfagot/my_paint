@@ -14,7 +14,8 @@ typedef enum e_tool {
     PENCIL,
     BRUSH,
     ERASER,
-    DROPPER
+    DROPPER,
+    BUCKET,
 } e_tool;
 
 typedef enum e_shape {

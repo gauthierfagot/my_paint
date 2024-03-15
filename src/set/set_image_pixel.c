@@ -108,6 +108,8 @@ void set_pixel(sfRenderWindow *window, paint_t *paint,
         return;
     if (new_tools.tool == ERASER)
         new_tools.color = sfTransparent;
+    if (new_tools.tool == BUCKET)
+        return fill_area(window, paint, tools);
     if (new_tools.shape == SQUARE)
         draw_square(paint, &mouse, &new_tools);
     else
