@@ -12,7 +12,7 @@
     #include "texture.h"
     #include "color.h"
 
-static const int INIT_BUTTONS_SIZE = 33;
+static const int INIT_BUTTONS_SIZE = 34;
 
 static const init_buttons_t INIT_BUTTONS[] = {
     {{45, 45}, {350, 100}, set_bin, NEW_FILE_TEXTURE, DEFAULT,
@@ -69,8 +69,8 @@ static const init_buttons_t INIT_BUTTONS[] = {
         SHAPES, &sfWhite, sfFalse},
     {{45, 45}, {1250, 50}, set_square, SQUARE_TEXTURE, DEFAULT,
         SHAPES, &sfWhite, sfFalse},
-     {{45, 45}, {1500, 50}, set_tiny_size, TINY_SIZE_TEXTURE, DEFAULT,
-         THICKNESS, &sfWhite, sfFalse},
+    {{45, 45}, {1500, 50}, set_tiny_size, TINY_SIZE_TEXTURE, DEFAULT,
+        THICKNESS, &sfWhite, sfFalse},
     {{45, 45}, {1450, 50}, set_small_size, SMALL_SIZE_TEXTURE, CLICKED,
         THICKNESS, &sfWhite, sfFalse},
     {{45, 45}, {1400, 50}, set_medium_size, MEDIUM_SIZE_TEXTURE, DEFAULT,
