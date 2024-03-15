@@ -24,6 +24,8 @@ void import_image(void *arg, graphical_tool_t *)
         filename = clear_str(line);
         free(line);
         image = sfImage_createFromFile(filename);
+        if (filename != NULL)
+            free(filename);
         if (image == NULL)
             return;
         sfImage_copyImage(paint->image, image, 0, 0, (sfIntRect){0}, sfTrue);
