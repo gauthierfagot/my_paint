@@ -13,6 +13,7 @@ SRC     =	src/main.c						\
 			src/set_window.c				\
 			src/flip_image.c				\
 			src/event/event.c				\
+			src/central_loop.c				\
 			src/draw_entities.c				\
 			src/initializations.c			\
 			src/free_and_destroy.c			\

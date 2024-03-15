@@ -22,11 +22,17 @@ typedef struct paint_s {
     button_t **buttons;
 } paint_t;
 
+// error_handling
+
 sfBool check_env(char **env);
+
+// central_loop.c
+
+void central_loop(sfRenderWindow *window, paint_t *paint);
 
 // create, initialize and set
 
-sfBool create_paint(paint_t *paint);
+sfBool create_paint(paint_t *paint, char *filename);
 graphical_tool_t create_tools(void);
 void set_window_entities(sfRectangleShape *background);
 drop_menu_t *init_drop_menu(paint_t *paint, int i);

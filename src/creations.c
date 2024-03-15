@@ -92,10 +92,18 @@ static button_t **create_buttons(paint_t *paint)
     return buttons;
 }
 
-sfBool create_paint(paint_t *paint)
+sfBool create_paint(paint_t *paint, char *filename)
 {
+    sfImage *image = NULL;
+
     paint->image = sfImage_createFromColor(WIDTH_IMAGE,
     HEIGHT_IMAGE, sfTransparent);
+    if (filename != NULL) {
+        image = sfImage_createFromFile(filename);
+        if (image == NULL)
+            return sfFalse;
+        sfImage_copyImage(paint->image, image, 0, 0, (sfIntRect){0}, sfTrue);
+    }
     paint->textures = create_textures(paint);
     if (paint->textures == NULL)
         return sfFalse;

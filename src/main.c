@@ -5,33 +5,8 @@
 ** main
 */
 
-#include "my_paint.h"
-#include "graphical_tool.h"
-#include "define.h"
 #include "color.h"
-
-void central_loop(sfRenderWindow *window, paint_t *paint)
-{
-    sfEvent event;
-    graphical_tool_t tools = create_tools();
-    sfRectangleShape *background = sfRectangleShape_create();
-    sfSprite *drawing = init_drawing(paint);
-
-    if (background == NULL || drawing == NULL)
-        return;
-    set_window_entities(background);
-    while (sfRenderWindow_isOpen(window)) {
-        if (analyze_events(window, &event, paint, &tools) == sfFalse)
-            break;
-        draw_entities(window, background, paint, drawing);
-        sfTexture_updateFromImage(paint->textures[DRAWING],
-            paint->image, 0, 0);
-        sfRenderWindow_display(window);
-        sfRenderWindow_clear(window, color_tab[BACKGROUND_COLOR]);
-    }
-    sfRectangleShape_destroy(background);
-    sfSprite_destroy(drawing);
-}
+#include "define.h"
 
 int main(int argc, char **argv, char **env)
 {
@@ -39,13 +14,12 @@ int main(int argc, char **argv, char **env)
     sfRenderWindow *window = NULL;
     paint_t paint = {0};
 
-    (void)argv;
-    if (check_env(env) == sfFalse || argc != 1)
+    if (check_env(env) == sfFalse || argc > 2)
         return 84;
     window = sfRenderWindow_create(mode, "Paint", sfResize | sfClose, NULL);
     if (!window)
         return 84;
-    if (create_paint(&paint) == sfFalse) {
+    if (create_paint(&paint, argv[1]) == sfFalse) {
         sfRenderWindow_destroy(window);
         return 84;
     }
