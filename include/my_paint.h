@@ -129,6 +129,7 @@ void import_image(void *arg, graphical_tool_t *);
 
 // help
 
+void print_login(void *, graphical_tool_t *);
 void help(void *, graphical_tool_t *);
 
 // save
