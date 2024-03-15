@@ -84,8 +84,10 @@ void handle_pressed_button(sfEvent *event, paint_t *paint,
     graphical_tool_t *tools, sfRenderWindow *window)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
-    sfVector2f position = sfSprite_getPosition(paint->drawing);
     sfVector2u size_image = sfImage_getSize(paint->image);
+    sfVector2u size_window = sfRenderWindow_getSize(window);
+    sfVector2f position = {(size_window.x - size_image.x) / 2.0,
+    (size_window.y - size_image.y) * (2.0 / 3.0)};
     sfFloatRect rect = {position.x, position.y, size_image.x, size_image.y};
 
     if (are_buttons_clicked(event, paint, tools))

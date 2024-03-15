@@ -14,7 +14,9 @@
 
 void draw_square(paint_t *paint, sfVector2i *mouse, graphical_tool_t *tools)
 {
-    sfVector2f position = sfSprite_getPosition(paint->drawing);
+    sfVector2u size_image = sfImage_getSize(paint->image);
+    sfVector2f position = {(WIDTH - size_image.x) / 2.0,
+    (HEIGHT - size_image.y) * (2.0 / 3.0)};
     int mouse_x = mouse->x - (tools->width / 2);
     int mouse_y = mouse->y - (tools->height / 2);
 
@@ -30,7 +32,9 @@ static void set_pixel_circle(paint_t *paint, sfVector2i *mouse,
     graphical_tool_t *tools, int i)
 {
     int radius = tools->width / 2;
-    sfVector2f position = sfSprite_getPosition(paint->drawing);
+    sfVector2u size_image = sfImage_getSize(paint->image);
+    sfVector2f position = {(WIDTH - size_image.x) / 2.0,
+    (HEIGHT - size_image.y) * (2.0 / 3.0)};
 
     for (int j = -radius + mouse->y; j <= radius + mouse->y; j++) {
         if ((i - mouse->x) * (i - mouse->x) + (j - mouse->y) *

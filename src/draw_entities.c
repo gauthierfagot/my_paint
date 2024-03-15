@@ -37,10 +37,10 @@ void draw_drop_menus(sfRenderWindow *window, drop_menu_t **menus)
 }
 
 void draw_entities(sfRenderWindow *window, sfRectangleShape *background,
-    paint_t *paint)
+    paint_t *paint, sfSprite *drawing)
 {
     sfRenderWindow_drawRectangleShape(window, background, NULL);
-    draw_pixels(window, paint->drawing);
+    draw_pixels(window, drawing);
     draw_drop_menus(window, paint->menus);
     draw_buttons(window, paint->buttons);
 }

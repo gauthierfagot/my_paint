@@ -99,7 +99,6 @@ sfBool create_paint(paint_t *paint)
     paint->textures = create_textures(paint);
     if (paint->textures == NULL)
         return sfFalse;
-    paint->drawing = init_drawing(paint);
     paint->menus = create_menus(paint);
     if (paint->menus == NULL)
         return sfFalse;

@@ -61,7 +61,6 @@ void destroy_variable(sfRenderWindow *window, paint_t *paint)
     destroy_drop_menus(paint);
     destroy_buttons(paint->buttons);
     destroy_textures(paint);
-    sfSprite_destroy(paint->drawing);
     sfImage_destroy(paint->image);
     sfRenderWindow_destroy(window);
 }

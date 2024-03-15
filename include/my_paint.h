@@ -18,7 +18,6 @@
 typedef struct paint_s {
     sfImage *image;
     sfTexture **textures;
-    sfSprite *drawing;
     drop_menu_t **menus;
     button_t **buttons;
 } paint_t;
@@ -40,7 +39,8 @@ void help(void *, graphical_tool_t *);
 
 // print
 
-void draw_entities(sfRenderWindow *, sfRectangleShape *, paint_t *);
+void draw_entities(sfRenderWindow *, sfRectangleShape *, paint_t *,
+    sfSprite *);
 void draw_pixels(sfRenderWindow *, sfSprite *);
 
 // events
