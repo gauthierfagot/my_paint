@@ -46,6 +46,8 @@ void set_window_entities(sfRectangleShape *background);
 drop_menu_t *init_drop_menu(paint_t *paint, int i);
 button_t *init_button(paint_t *paint, const init_buttons_t *);
 sfSprite *init_drawing(paint_t *paint);
+void update_mouse(sfRenderWindow *window, sfSprite *mouse_sprite,
+    graphical_tool_t *tools, sfTexture **textures);
 
 // print
 
@@ -68,6 +70,8 @@ void outline_button(button_t *button);
 // destroy and free
 
 void free_array(char **array);
+void destroy_entities(sfRectangleShape *background, sfSprite *drawing,
+    sfSprite *mouse_sprite);
 void destroy_variable(sfRenderWindow *window, paint_t *paint);
 
 // colors //
@@ -108,6 +112,7 @@ void set_brush(void *, graphical_tool_t *tools);
 void set_pencil(void *, graphical_tool_t *tools);
 void set_dropper(void *, graphical_tool_t *tools);
 void set_bucket(void *, graphical_tool_t *tool);
+void set_hammer(void *, graphical_tool_t *tool);
 
 // set_shapes
 

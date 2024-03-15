@@ -32,6 +32,8 @@ typedef enum e_texture {
     FLIP_HORIZONTAL_TEXTURE,
     LOGIN_TEXTURE,
     TUTORIAL_TEXTURE,
+    BUCKET_TEXTURE,
+    HAMMER_TEXTURE,
     SIZE
 } e_texture;
 

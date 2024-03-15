@@ -51,7 +51,7 @@ graphical_tool_t create_tools(void)
 
     tools.height = 20;
     tools.width = 20;
-    tools.tool = MOUSE;
+    tools.tool = PENCIL;
     tools.shape = CIRCLE;
     tools.color = sfBlack;
     return tools;

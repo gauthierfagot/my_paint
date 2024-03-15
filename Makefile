@@ -36,6 +36,8 @@ SRC     =	src/main.c							\
 			src/button_actions/flip_image.c		\
 			src/button_actions/import_file.c	\
 			src/button_actions/print_login.c	\
+			src/update_mouse.c	\
+			src/set/set_hammer.c	\
 
 OBJ     =	$(SRC:.c=.o)
 

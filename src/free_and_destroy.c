@@ -56,6 +56,14 @@ static void destroy_drop_menus(paint_t *paint)
     free(paint->menus);
 }
 
+void destroy_entities(sfRectangleShape *background, sfSprite *drawing,
+    sfSprite *mouse_sprite)
+{
+    sfRectangleShape_destroy(background);
+    sfSprite_destroy(drawing);
+    sfSprite_destroy(mouse_sprite);
+}
+
 void destroy_variable(sfRenderWindow *window, paint_t *paint)
 {
     destroy_drop_menus(paint);

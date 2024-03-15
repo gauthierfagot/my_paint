@@ -16,6 +16,7 @@ typedef enum e_tool {
     ERASER,
     DROPPER,
     BUCKET,
+    HAMMER
 } e_tool;
 
 typedef enum e_shape {

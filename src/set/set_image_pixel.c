@@ -36,7 +36,7 @@ static void set_pixel_circle(paint_t *paint, sfVector2i *mouse,
     sfVector2f position = {(WIDTH - size_image.x) / 2.0,
     (HEIGHT - size_image.y) * (2.0 / 3.0)};
 
-    for (int j = -radius + mouse->y; j <= radius + mouse->y; j++) {
+    for (int j = mouse->y -radius; j <= radius + mouse->y; j++) {
         if ((i - mouse->x) * (i - mouse->x) + (j - mouse->y) *
         (j - mouse->y) < radius * radius) {
             sfImage_setPixel(paint->image, i - position.x,
@@ -50,7 +50,7 @@ void draw_circle(paint_t *paint, sfVector2i *mouse, graphical_tool_t *tools)
 {
     int radius = tools->width / 2;
 
-    for (int i = -radius + mouse->x; i <= radius + mouse->x; i++) {
+    for (int i = mouse->x -radius; i <= radius + mouse->x; i++) {
         set_pixel_circle(paint, mouse, tools, i);
     }
 }
@@ -108,7 +108,7 @@ void set_pixel(sfRenderWindow *window, paint_t *paint,
         return;
     if (new_tools.tool == ERASER)
         new_tools.color = sfTransparent;
-    if (new_tools.tool == BUCKET)
+    if (new_tools.tool == BUCKET || new_tools.tool == HAMMER)
         return fill_area(window, paint, tools);
     if (new_tools.shape == SQUARE)
         draw_square(paint, &mouse, &new_tools);

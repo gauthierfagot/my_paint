@@ -12,7 +12,7 @@
     #include "texture.h"
     #include "color.h"
 
-static const int INIT_BUTTONS_SIZE = 34;
+static const int INIT_BUTTONS_SIZE = 36;
 
 static const init_buttons_t INIT_BUTTONS[] = {
     {{45, 45}, {350, 100}, set_bin, NEW_FILE_TEXTURE, DEFAULT,
@@ -82,7 +82,11 @@ static const init_buttons_t INIT_BUTTONS[] = {
     {{45, 45}, {725, 50}, flip_horizontally, FLIP_HORIZONTAL_TEXTURE, DEFAULT,
         FLIP, &sfWhite, sfFalse},
     {{45, 45}, {775, 50}, flip_vertically, FLIP_VERTICAL_TEXTURE, DEFAULT,
-        FLIP, &sfWhite, sfFalse}
+        FLIP, &sfWhite, sfFalse},
+    {{45, 45}, {475, 300}, set_bucket, BUCKET_TEXTURE, DEFAULT,
+        EDITION, &sfWhite, sfTrue},
+    {{45, 45}, {475, 350}, set_hammer, HAMMER_TEXTURE, DEFAULT,
+        EDITION, &sfWhite, sfTrue}
 };
 
 #endif /* !INIT_BUTTON_ARRAY_H */
