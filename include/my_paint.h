@@ -30,6 +30,10 @@ sfBool check_env(char **env);
 
 void central_loop(sfRenderWindow *window, paint_t *paint);
 
+// clear
+
+char *clear_str(const char *str);
+
 // create, initialize and set
 
 sfBool create_paint(paint_t *paint, char *filename);
@@ -38,10 +42,6 @@ void set_window_entities(sfRectangleShape *background);
 drop_menu_t *init_drop_menu(paint_t *paint, int i);
 button_t *init_button(paint_t *paint, const init_buttons_t *);
 sfSprite *init_drawing(paint_t *paint);
-
-// help
-
-void help(void *, graphical_tool_t *);
 
 // print
 
@@ -65,10 +65,6 @@ void outline_button(button_t *button);
 
 void free_array(char **array);
 void destroy_variable(sfRenderWindow *window, paint_t *paint);
-
-// save
-
-void save_drawing(void *, graphical_tool_t *);
 
 // colors //
 
@@ -115,14 +111,28 @@ void set_square(void *, graphical_tool_t *tools);
 
 // set_size
 
+void set_tiny_size(void *, graphical_tool_t *tools);
 void set_small_size(void *, graphical_tool_t *tools);
 void set_medium_size(void *, graphical_tool_t *tools);
 void set_big_size(void *, graphical_tool_t *tools);
+
+// button_actions //
 
 // flip
 
 void flip_horizontally(void *data, graphical_tool_t *);
 void flip_vertically(void *data, graphical_tool_t *);
 
+// import
+
+void import_image(void *arg, graphical_tool_t *);
+
+// help
+
+void help(void *, graphical_tool_t *);
+
+// save
+
+void save_drawing(void *, graphical_tool_t *);
 
 #endif /* !PAINT */

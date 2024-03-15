@@ -6,12 +6,9 @@
 ##
 
 SRC     =	src/main.c						\
-			src/help.c						\
+			src/clear.c						\
 			src/check_env.c					\
 			src/creations.c					\
-			src/save_file.c					\
-			src/set_window.c				\
-			src/flip_image.c				\
 			src/event/event.c				\
 			src/central_loop.c				\
 			src/draw_entities.c				\
@@ -19,6 +16,7 @@ SRC     =	src/main.c						\
 			src/free_and_destroy.c			\
 			src/set/set_bin.c				\
 			src/set/set_tools.c				\
+			src/set/set_window.c			\
 			src/set/set_shapes.c			\
 			src/set/set_thickness.c			\
 			src/set/set_drop_menu.c			\
@@ -30,6 +28,10 @@ SRC     =	src/main.c						\
 			src/colors/set_other_colors.c	\
 			src/colors/set_blade_colors.c	\
 			src/colors/set_primary_colors.c	\
+			src/button_actions/help.c		\
+			src/button_actions/save_file.c	\
+			src/button_actions/flip_image.c	\
+			src/button_actions/import_file.c\
 
 OBJ     =	$(SRC:.c=.o)
 

@@ -7,6 +7,12 @@
 
 #include "graphical_tool.h"
 
+void set_tiny_size(void *, graphical_tool_t *tools)
+{
+    tools->height = 5;
+    tools->width = 5;
+}
+
 void set_small_size(void *, graphical_tool_t *tools)
 {
     tools->height = 20;
